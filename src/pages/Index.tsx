@@ -178,9 +178,16 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-faq">
+      <section
+        className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10"
+        aria-labelledby="home-faq"
+        onClick={() => setOpenQuestion(null)}
+      >
         <SectionHeader id="home-faq" label="FAQ" />
-        <div className="space-y-4">
+        <div
+          className="space-y-4"
+          onClick={(e) => e.stopPropagation()}
+        >
           {[
             {
               question: "Do you work with agencies, creators, or founders?",

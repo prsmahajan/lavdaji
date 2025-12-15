@@ -60,20 +60,25 @@ const FAQ = () => {
         />
       </section>
 
-      <section className="mt-10 space-y-4 border-t pt-6 md:mt-16 md:pt-10">
-        {faqItems.map((item) => (
-          <FaqItem
-            key={item.question}
-            question={item.question}
-            answer={item.answer}
-            isOpen={openQuestion === item.question}
-            onToggle={() =>
-              setOpenQuestion((current) =>
-                current === item.question ? null : item.question,
-              )
-            }
-          />
-        ))}
+      <section
+        className="mt-10 space-y-4 border-t pt-6 md:mt-16 md:pt-10"
+        onClick={() => setOpenQuestion(null)}
+      >
+        <div onClick={(e) => e.stopPropagation()}>
+          {faqItems.map((item) => (
+            <FaqItem
+              key={item.question}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openQuestion === item.question}
+              onToggle={() =>
+                setOpenQuestion((current) =>
+                  current === item.question ? null : item.question,
+                )
+              }
+            />
+          ))}
+        </div>
       </section>
     </Layout>
   );

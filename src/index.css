@@ -102,8 +102,8 @@
   .theme-transition,
   .theme-transition * {
     transition:
-      background-color 2s ease-in-out,
-      color 2s ease-in-out,
+      background-color 1s ease-in-out,
+      color 1s ease-in-out,
       border-color 1s ease-in-out;
   }
 

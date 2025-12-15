@@ -99,6 +99,12 @@
     @apply bg-background text-foreground antialiased font-sans;
   }
 
+  .theme-transition,
+  .theme-transition * {
+    transition: background-color 2s ease-in-out, color 2s ease-in-out,
+      border-color 2s ease-in-out;
+  }
+
   h1 {
     @apply font-serifHeading text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-tight;
   }

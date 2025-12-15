@@ -3,10 +3,17 @@ export type Theme = "light" | "dark";
 export const applyTheme = (theme: Theme) => {
   if (typeof document === "undefined") return;
 
+  const root = document.documentElement;
+
+  root.classList.add("theme-transition");
+  setTimeout(() => {
+    root.classList.remove("theme-transition");
+  }, 2000);
+
   if (theme === "dark") {
-    document.documentElement.classList.add("dark");
+    root.classList.add("dark");
   } else {
-    document.documentElement.classList.remove("dark");
+    root.classList.remove("dark");
   }
 
   try {

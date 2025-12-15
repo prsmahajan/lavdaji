@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { FaqItem } from "@/components/FaqItem";
 
 const faqItems = [
   {
@@ -55,12 +56,7 @@ const FAQ = () => {
 
       <section className="mt-8 space-y-4">
         {faqItems.map((item) => (
-          <details key={item.question} className="rounded-lg border bg-card p-4">
-            <summary className="cursor-pointer list-none text-sm font-medium text-foreground">
-              {item.question}
-            </summary>
-            <p className="mt-2 text-sm text-muted-foreground">{item.answer}</p>
-          </details>
+          <FaqItem key={item.question} question={item.question} answer={item.answer} />
         ))}
       </section>
     </Layout>

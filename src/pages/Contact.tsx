@@ -1,5 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const Contact = () => {
   return (
@@ -11,27 +12,29 @@ const Contact = () => {
         </p>
       </section>
 
-      <section className="mt-10 space-y-6 rounded-lg border bg-card p-6">
-        <div className="space-y-2 text-sm text-muted-foreground">
-          <p>Email: [add your best contact email]</p>
-          <p>
-            Optional: add links to platforms you actually use (LinkedIn, Twitter, newsletter) once you are ready to
-            share them.
-          </p>
-        </div>
+      <section className="mt-10">
+        <Card className="space-y-6 p-6">
+          <div className="space-y-2 text-sm text-muted-foreground">
+            <p>Email: [add your best contact email]</p>
+            <p>
+              Optional: add links to platforms you actually use (LinkedIn, Twitter, newsletter) once you are ready to
+              share them.
+            </p>
+          </div>
 
-        <div className="pt-1">
-          <Button
-            type="button"
-            variant="cta"
-            size="lg"
-            data-cal-link="prsmahajan/60"
-            data-cal-namespace="60"
-            data-cal-config='{"layout":"month_view"}'
-          >
-            Schedule a conversation
-          </Button>
-        </div>
+          <div className="pt-1">
+            <Button
+              type="button"
+              variant="cta"
+              size="lg"
+              data-cal-link="prsmahajan/60"
+              data-cal-namespace="60"
+              data-cal-config='{"layout":"month_view"}'
+            >
+              Schedule a conversation
+            </Button>
+          </div>
+        </Card>
       </section>
     </Layout>
   );

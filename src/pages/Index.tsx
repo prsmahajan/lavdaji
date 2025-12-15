@@ -1,5 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { FaqItem } from "@/components/FaqItem";
 
 const Index = () => {
   return (
@@ -67,7 +69,7 @@ const Index = () => {
           What I build
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <article className="space-y-3 rounded-lg border bg-card p-6">
+          <Card className="space-y-3 p-6">
             <h3 className="text-sm font-semibold text-foreground">AI Video Automation</h3>
             <p className="text-sm text-muted-foreground">
               For founders and creators who want consistent video output without turning content into a full-time job.
@@ -81,9 +83,9 @@ const Index = () => {
             <p className="text-xs font-medium text-foreground">
               Outcome: a predictable content engine, not a guessing game.
             </p>
-          </article>
+          </Card>
 
-          <article className="space-y-3 rounded-lg border bg-card p-6">
+          <Card className="space-y-3 p-6">
             <h3 className="text-sm font-semibold text-foreground">AI Sales Automation</h3>
             <p className="text-sm text-muted-foreground">
               For teams that want every qualified lead captured, routed, and followed up with — automatically.
@@ -97,13 +99,12 @@ const Index = () => {
             <p className="text-xs font-medium text-foreground">
               Outcome: faster decisions and fewer &quot;we forgot to follow up&quot; moments.
             </p>
-          </article>
+          </Card>
 
-          <article className="space-y-3 rounded-lg border bg-card p-6">
+          <Card className="space-y-3 p-6">
             <h3 className="text-sm font-semibold text-foreground">AI Marketing Systems</h3>
             <p className="text-sm text-muted-foreground">
-              For businesses that want clear loops from audience → content → conversion, instead of disconnected
-              tactics.
+              For businesses that want clear loops from audience → content → conversion, instead of disconnected tactics.
             </p>
             <ul className="space-y-1.5 text-xs text-muted-foreground">
               <li>• Narrative and offer structure that your systems can follow</li>
@@ -114,7 +115,7 @@ const Index = () => {
             <p className="text-xs font-medium text-foreground">
               Outcome: steady, compounding growth instead of random spikes.
             </p>
-          </article>
+          </Card>
         </div>
       </section>
 
@@ -123,7 +124,7 @@ const Index = () => {
           Offers
         </h2>
         <div className="grid gap-6 md:grid-cols-2">
-          <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
+          <Card className="flex flex-col justify-between p-6">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold text-foreground">Automation Audit</h3>
               <p className="text-sm text-muted-foreground">
@@ -137,9 +138,9 @@ const Index = () => {
                 <li>• Recording + summary notes</li>
               </ul>
             </div>
-          </article>
+          </Card>
 
-          <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
+          <Card className="flex flex-col justify-between p-6">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold text-foreground">Build a Revenue System</h3>
               <p className="text-sm text-muted-foreground">
@@ -154,9 +155,9 @@ const Index = () => {
                 <li>• Plain-language documentation + handover</li>
               </ul>
             </div>
-          </article>
+          </Card>
 
-          <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
+          <Card className="flex flex-col justify-between p-6">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold text-foreground">Ongoing Systems Partnership</h3>
               <p className="text-sm text-muted-foreground">
@@ -172,7 +173,7 @@ const Index = () => {
                 Best for founders and small teams who want leverage, not busywork.
               </p>
             </div>
-          </article>
+          </Card>
         </div>
       </section>
 
@@ -181,54 +182,26 @@ const Index = () => {
           FAQ
         </h2>
         <div className="space-y-4">
-          <details className="rounded-lg border bg-card p-5 text-sm">
-            <summary className="cursor-pointer list-none font-medium text-foreground">
-              Do you work with agencies, creators, or founders?
-            </summary>
-            <p className="mt-2 text-muted-foreground">
-              All three. I work best with leaders who are close to the work and want systems that support them, not
-              replace them.
-            </p>
-          </details>
-
-          <details className="rounded-lg border bg-card p-5 text-sm">
-            <summary className="cursor-pointer list-none font-medium text-foreground">
-              How long does a system take to build?
-            </summary>
-            <p className="mt-2 text-muted-foreground">
-              Most core systems are designed and launched in 2–4 weeks. Larger, multi-channel builds can take longer
-              depending on scope.
-            </p>
-          </details>
-
-          <details className="rounded-lg border bg-card p-5 text-sm">
-            <summary className="cursor-pointer list-none font-medium text-foreground">
-              Do I need a big audience before we start?
-            </summary>
-            <p className="mt-2 text-muted-foreground">
-              No. What matters is a clear offer and a way people currently find you. Systems help you compound what is
-              already working.
-            </p>
-          </details>
-
-          <details className="rounded-lg border bg-card p-5 text-sm">
-            <summary className="cursor-pointer list-none font-medium text-foreground">
-              Will this replace my team?
-            </summary>
-            <p className="mt-2 text-muted-foreground">
-              No. Automations remove repetitive work so your team can focus on judgment, conversation, and strategy.
-            </p>
-          </details>
-
-          <details className="rounded-lg border bg-card p-5 text-sm">
-            <summary className="cursor-pointer list-none font-medium text-foreground">
-              What do you need from me to start?
-            </summary>
-            <p className="mt-2 text-muted-foreground">
-              Access to your current tools, clarity on your main revenue goal, and 1–2 focused sessions where we walk
-              through how you work today.
-            </p>
-          </details>
+          <FaqItem
+            question="Do you work with agencies, creators, or founders?"
+            answer="All three. I work best with leaders who are close to the work and want systems that support them, not replace them."
+          />
+          <FaqItem
+            question="How long does a system take to build?"
+            answer="Most core systems are designed and launched in 2–4 weeks. Larger, multi-channel builds can take longer depending on scope."
+          />
+          <FaqItem
+            question="Do I need a big audience before we start?"
+            answer="No. What matters is a clear offer and a way people currently find you. Systems help you compound what is already working."
+          />
+          <FaqItem
+            question="Will this replace my team?"
+            answer="No. Automations remove repetitive work so your team can focus on judgment, conversation, and strategy."
+          />
+          <FaqItem
+            question="What do you need from me to start?"
+            answer="Access to your current tools, clarity on your main revenue goal, and 1–2 focused sessions where we walk through how you work today."
+          />
         </div>
       </section>
     </Layout>

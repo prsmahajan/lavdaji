@@ -1,14 +1,17 @@
 import { Layout } from "@/components/Layout";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/ui/card";
 
 const Process = () => {
   return (
     <Layout>
-      <section className="space-y-6">
-        <h1>Process</h1>
-        <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
-          A simple, structured way of working so you always know what we are doing and why.
-        </p>
+      <section className="space-y-4">
+        <h1 className="sr-only">Process</h1>
+        <SectionHeader
+          id="process"
+          label="Process"
+          description="A simple, structured way of working so you always know what we are doing and why."
+        />
       </section>
 
       <section className="mt-12 grid gap-4 border-t pt-6 md:mt-20 md:grid-cols-2 md:pt-10">

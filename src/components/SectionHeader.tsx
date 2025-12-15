@@ -7,6 +7,7 @@ interface SectionHeaderProps {
   eyebrow?: string;
   description?: ReactNode;
   align?: "left" | "center";
+  as?: "h1" | "h2" | "h3";
   className?: string;
 }
 
@@ -16,8 +17,11 @@ export const SectionHeader = ({
   eyebrow,
   description,
   align = "left",
+  as = "h2",
   className,
 }: SectionHeaderProps) => {
+  const HeadingTag = as;
+
   return (
     <header
       className={cn(
@@ -31,12 +35,12 @@ export const SectionHeader = ({
           {eyebrow}
         </p>
       )}
-      <h2
+      <HeadingTag
         id={id}
         className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground"
       >
         {label}
-      </h2>
+      </HeadingTag>
       {description && (
         <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
           {description}

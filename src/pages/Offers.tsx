@@ -1,16 +1,19 @@
 import { Layout } from "@/components/Layout";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { trackEvent } from "@/lib/analytics";
 
 const Offers = () => {
   return (
     <Layout>
-      <section className="space-y-6">
-        <h1>Offers</h1>
-        <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
-          Three clear ways to work together. Each offer is designed so you know exactly what you are getting and what
-          happens next.
-        </p>
+      <section className="space-y-4">
+        <h1 className="sr-only">Offers</h1>
+        <SectionHeader
+          id="offers"
+          label="Offers"
+          description="Three clear ways to work together. Each offer is designed so you know exactly what you are getting and what happens next."
+        />
       </section>
 
       <section className="mt-12 grid gap-6 border-t pt-6 md:mt-20 md:grid-cols-2 md:pt-10">
@@ -36,6 +39,11 @@ const Offers = () => {
               data-cal-link="prsmahajan/60"
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
+              onClick={() =>
+                trackEvent("offer_cta_click", {
+                  offer: "Automation Audit",
+                })
+              }
             >
               Schedule an Audit
             </Button>
@@ -49,8 +57,7 @@ const Offers = () => {
           <div className="space-y-3">
             <h2>Build a Revenue System</h2>
             <p className="text-sm text-muted-foreground">
-              Design and build a full system around a specific outcome: more calls, more qualified leads, or more
-              buyers.
+              Design and build a full system around a specific outcome: more calls, more qualified leads, or more buyers.
             </p>
             <ul className="space-y-1.5 text-sm text-muted-foreground">
               <li>• Clear success metric and scope</li>
@@ -68,6 +75,11 @@ const Offers = () => {
               data-cal-link="prsmahajan/60"
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
+              onClick={() =>
+                trackEvent("offer_cta_click", {
+                  offer: "Build a Revenue System",
+                })
+              }
             >
               Talk about a system build
             </Button>
@@ -101,6 +113,11 @@ const Offers = () => {
               data-cal-link="prsmahajan/60"
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
+              onClick={() =>
+                trackEvent("offer_cta_click", {
+                  offer: "Ongoing Systems Partnership",
+                })
+              }
             >
               Explore partnership
             </Button>

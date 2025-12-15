@@ -1,15 +1,17 @@
 import { Layout } from "@/components/Layout";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/ui/card";
 
 const WhatIBuild = () => {
   return (
     <Layout>
-      <section className="space-y-6">
-        <h1>What I build</h1>
-        <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
-          Three core system types that cover how you show up, how you sell, and how you grow — all built to be
-          maintainable, not fragile.
-        </p>
+      <section className="space-y-4">
+        <h1 className="sr-only">What I build</h1>
+        <SectionHeader
+          id="what-i-build"
+          label="What I build"
+          description="Three core system types that cover how you show up, how you sell, and how you grow — all built to be maintainable, not fragile."
+        />
       </section>
 
       <section className="mt-12 space-y-6 border-t pt-6 md:mt-20 md:pt-10">

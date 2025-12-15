@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SectionHeader } from "@/components/SectionHeader";
 import { FaqItem } from "@/components/FaqItem";
 
 const faqItems = [
@@ -47,14 +48,16 @@ const faqItems = [
 const FAQ = () => {
   return (
     <Layout>
-      <section className="space-y-6">
-        <h1>FAQ</h1>
-        <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
-          If you are considering working together, these are the questions that usually matter most.
-        </p>
+      <section className="space-y-4">
+        <h1 className="sr-only">Frequently asked questions</h1>
+        <SectionHeader
+          id="faq"
+          label="FAQ"
+          description="If you are considering working together, these are the questions that usually matter most before we start."
+        />
       </section>
 
-      <section className="mt-8 space-y-4">
+      <section className="mt-10 space-y-4 border-t pt-6 md:mt-16 md:pt-10">
         {faqItems.map((item) => (
           <FaqItem key={item.question} question={item.question} answer={item.answer} />
         ))}

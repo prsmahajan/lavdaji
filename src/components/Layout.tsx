@@ -34,7 +34,11 @@ export const Layout = ({ children }: LayoutProps) => {
           <div className="flex flex-1 items-center justify-end gap-6">
             <div className="hidden items-center gap-5 text-xs md:flex md:text-sm">
               {navItems.map((item) => (
-                <a key={item.href} href={item.href} className="text-muted-foreground hover:text-foreground">
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="font-semibold text-foreground/90 hover:text-foreground"
+                >
                   {item.label}
                 </a>
               ))}

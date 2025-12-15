@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { Card } from "@/components/ui/card";
 
 const Proof = () => {
   return (
@@ -12,7 +13,7 @@ const Proof = () => {
       </section>
 
       <section className="mt-10 space-y-5">
-        <article className="rounded-lg border bg-card p-5">
+        <Card className="p-5">
           <h2 className="mb-1 text-base md:text-lg">Short-Form Content Engine</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">
@@ -30,9 +31,9 @@ const Proof = () => {
             leads.
           </p>
           <p className="text-xs text-muted-foreground">Implementation stack available on request.</p>
-        </article>
+        </Card>
 
-        <article className="rounded-lg border bg-card p-5">
+        <Card className="p-5">
           <h2 className="mb-1 text-base md:text-lg">Inbound Lead to Booked Call System</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">
@@ -48,9 +49,9 @@ const Proof = () => {
             20–40% lift in qualified booked calls and near-zero &quot;we never replied&quot; cases on warm leads.
           </p>
           <p className="text-xs text-muted-foreground">Implementation stack available on request.</p>
-        </article>
+        </Card>
 
-        <article className="rounded-lg border bg-card p-5">
+        <Card className="p-5">
           <h2 className="mb-1 text-base md:text-lg">Content to Conversion Loop</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">
@@ -66,9 +67,9 @@ const Proof = () => {
             More consistent inbound conversations and a cleaner connection between content performance and revenue.
           </p>
           <p className="text-xs text-muted-foreground">Implementation stack available on request.</p>
-        </article>
+        </Card>
 
-        <article className="rounded-lg border bg-card p-5">
+        <Card className="p-5">
           <h2 className="mb-1 text-base md:text-lg">Always-On Nurture Layer</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">
@@ -85,7 +86,7 @@ const Proof = () => {
             Higher reply and call-booking rates from &quot;old&quot; leads and a more predictable baseline of warm pipeline.
           </p>
           <p className="text-xs text-muted-foreground">Implementation stack available on request.</p>
-        </article>
+        </Card>
       </section>
     </Layout>
   );

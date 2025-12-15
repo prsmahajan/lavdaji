@@ -100,11 +100,11 @@
   }
 
   h1 {
-    @apply font-serifHeading text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight;
+    @apply font-serifHeading text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-tight;
   }
 
   h2 {
-    @apply font-serifHeading text-xl md:text-2xl font-semibold tracking-tight leading-snug;
+    @apply font-serifHeading text-lg md:text-xl font-semibold tracking-tight leading-snug;
   }
 
   h3 {
@@ -112,6 +112,6 @@
   }
 
   p {
-    @apply text-sm md:text-base leading-relaxed md:leading-loose;
+    @apply text-base md:text-lg leading-relaxed md:leading-relaxed;
   }
 }

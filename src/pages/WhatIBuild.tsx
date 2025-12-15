@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { Card } from "@/components/ui/card";
 
 const WhatIBuild = () => {
   return (
@@ -12,7 +13,7 @@ const WhatIBuild = () => {
       </section>
 
       <section className="mt-10 space-y-6">
-        <article className="space-y-3 rounded-lg border bg-card p-6">
+        <Card className="space-y-3 p-6">
           <h2>AI Video Automation</h2>
           <p className="text-sm text-muted-foreground">
             For founders and creators who want consistent video output without turning content into a full-time job.
@@ -24,9 +25,9 @@ const WhatIBuild = () => {
             <li>• Upload, scheduling, and light performance feedback loop</li>
           </ul>
           <p className="text-sm font-medium text-foreground">Outcome: a predictable content engine, not a guessing game.</p>
-        </article>
+        </Card>
 
-        <article className="space-y-3 rounded-lg border bg-card p-6">
+        <Card className="space-y-3 p-6">
           <h2>AI Sales Automation</h2>
           <p className="text-sm text-muted-foreground">
             For teams that want every qualified lead captured, routed, and followed up with — automatically.
@@ -38,9 +39,9 @@ const WhatIBuild = () => {
             <li>• CRM hygiene and pipeline updates you can actually trust</li>
           </ul>
           <p className="text-sm font-medium text-foreground">Outcome: faster decisions and fewer &quot;we forgot to follow up&quot; moments.</p>
-        </article>
+        </Card>
 
-        <article className="space-y-3 rounded-lg border bg-card p-6">
+        <Card className="space-y-3 p-6">
           <h2>AI Marketing Systems</h2>
           <p className="text-sm text-muted-foreground">
             For businesses that want clear loops from audience → content → conversion, instead of disconnected tactics.
@@ -52,7 +53,7 @@ const WhatIBuild = () => {
             <li>• Clear feedback loops so we know what to scale</li>
           </ul>
           <p className="text-sm font-medium text-foreground">Outcome: steady, compounding growth instead of random spikes.</p>
-        </article>
+        </Card>
       </section>
     </Layout>
   );

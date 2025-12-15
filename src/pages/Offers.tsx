@@ -1,5 +1,6 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const Offers = () => {
   return (
@@ -13,7 +14,7 @@ const Offers = () => {
       </section>
 
       <section className="mt-10 grid gap-6 md:grid-cols-2">
-        <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
+        <Card className="flex flex-col justify-between p-6">
           <div className="space-y-3">
             <h2>Automation Audit</h2>
             <p className="text-sm text-muted-foreground">
@@ -39,9 +40,9 @@ const Offers = () => {
               Schedule an Audit
             </Button>
           </div>
-        </article>
+        </Card>
 
-        <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
+        <Card className="flex flex-col justify-between p-6">
           <div className="space-y-3">
             <h2>Build a Revenue System</h2>
             <p className="text-sm text-muted-foreground">
@@ -68,9 +69,9 @@ const Offers = () => {
               Talk about a system build
             </Button>
           </div>
-        </article>
+        </Card>
 
-        <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
+        <Card className="flex flex-col justify-between p-6">
           <div className="space-y-3">
             <h2>Ongoing Systems Partnership</h2>
             <p className="text-sm text-muted-foreground">
@@ -98,7 +99,7 @@ const Offers = () => {
               Explore partnership
             </Button>
           </div>
-        </article>
+        </Card>
       </section>
     </Layout>
   );

@@ -6,7 +6,7 @@ import { FaqItem } from "@/components/FaqItem";
 const Index = () => {
   return (
     <Layout>
-      <section className="space-y-10">
+      <section className="space-y-8 md:space-y-10">
         <div className="mx-auto max-w-2xl space-y-4 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             AI automation, sales, and marketing systems
@@ -48,23 +48,23 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-16 border-t pt-8 md:mt-20 md:pt-10">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          Who this is for
-        </h2>
-        <div className="grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
-          <p>
-            Founders and small teams who are done with one-off campaigns and want calm, compounding acquisition and
-            nurture systems.
-          </p>
-          <p>
-            Creators and experts who are ready to treat their content and pipeline like assets, not a never-ending todo
-            list.
-          </p>
-        </div>
-      </section>
+      <section className="mt-12 border-t pt-6 md:mt-20 md:pt-10">
+         <h2 className="mb-2 md:mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+           Who this is for
+         </h2>
+         <div className="grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
+           <p>
+             Founders and small teams who are done with one-off campaigns and want calm, compounding acquisition and
+             nurture systems.
+           </p>
+           <p>
+             Creators and experts who are ready to treat their content and pipeline like assets, not a never-ending todo
+             list.
+           </p>
+         </div>
+       </section>
 
-      <section className="mt-20 space-y-6 md:mt-24" aria-labelledby="home-what-i-build">
+      <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-what-i-build">
         <h2 id="home-what-i-build" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           What I build
         </h2>
@@ -119,7 +119,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-20 space-y-6 md:mt-24" aria-labelledby="home-offers">
+      <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-offers">
         <h2 id="home-offers" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           Offers
         </h2>
@@ -177,7 +177,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-20 space-y-6 md:mt-24" aria-labelledby="home-faq">
+      <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-faq">
         <h2 id="home-faq" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           FAQ
         </h2>

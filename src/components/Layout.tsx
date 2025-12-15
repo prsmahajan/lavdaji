@@ -1,5 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { applyTheme, getStoredTheme, Theme } from "@/lib/theme";
 import { trackEvent } from "@/lib/analytics";
 
@@ -32,6 +33,37 @@ export const Layout = ({ children }: LayoutProps) => {
     }
 
     setTheme(initial);
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    let lastTrackedBucket = 0;
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+      if (docHeight <= 0) return;
+
+      const depth = Math.min(100, Math.round((scrollTop / docHeight) * 100));
+      const bucket = Math.floor(depth / 25) * 25;
+
+      if (bucket > lastTrackedBucket && bucket >= 25) {
+        lastTrackedBucket = bucket;
+
+        trackEvent("scroll_depth", {
+          depth: bucket,
+          path: window.location.pathname,
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -70,15 +102,26 @@ export const Layout = ({ children }: LayoutProps) => {
             </div>
 
             {theme && (
-              <button
-                type="button"
-                onClick={toggleTheme}
-                className="inline-flex h-8 items-center rounded-full border border-border px-3 text-xs text-muted-foreground hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring/60"
-                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              >
-                <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-foreground/60" />
-                <span>{theme === "dark" ? "Dark" : "Light"}</span>
-              </button>
+              <TooltipProvider delayDuration={300}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <button
+                      type="button"
+                      onClick={toggleTheme}
+                      className="inline-flex h-8 items-center gap-2 rounded-full border border-border/80 bg-background/80 px-3 text-[11px] font-medium text-muted-foreground shadow-sm transition-colors hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring/60"
+                      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-foreground/60" />
+                      <span>{theme === "dark" ? "Dark" : "Light"}</span>
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    <p className="max-w-xs text-xs leading-snug text-muted-foreground">
+                      Overrides your system appearance preference. Use this to switch between light and dark.
+                    </p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             )}
 
             <Button

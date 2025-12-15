@@ -64,15 +64,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: [
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", "sans-serif"],
+        serifHeading: ["Source Serif 4", "serif"],
       },
       keyframes: {
         "accordion-down": {

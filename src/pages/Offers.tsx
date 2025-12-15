@@ -12,8 +12,8 @@ const Offers = () => {
         </p>
       </section>
 
-      <section className="mt-8 grid gap-6 md:grid-cols-3">
-        <article className="flex flex-col justify-between rounded-lg border bg-card p-5">
+      <section className="mt-10 grid gap-6 md:grid-cols-2">
+        <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
           <div className="space-y-3">
             <h2>Automation Audit</h2>
             <p className="text-sm text-muted-foreground">
@@ -41,7 +41,7 @@ const Offers = () => {
           </div>
         </article>
 
-        <article className="flex flex-col justify-between rounded-lg border bg-card p-5">
+        <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
           <div className="space-y-3">
             <h2>Build a Revenue System</h2>
             <p className="text-sm text-muted-foreground">
@@ -70,7 +70,7 @@ const Offers = () => {
           </div>
         </article>
 
-        <article className="flex flex-col justify-between rounded-lg border bg-card p-5">
+        <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
           <div className="space-y-3">
             <h2>Ongoing Systems Partnership</h2>
             <p className="text-sm text-muted-foreground">

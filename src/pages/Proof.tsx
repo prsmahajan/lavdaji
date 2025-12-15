@@ -11,7 +11,7 @@ const Proof = () => {
         </p>
       </section>
 
-      <section className="mt-8 space-y-5">
+      <section className="mt-10 space-y-5">
         <article className="rounded-lg border bg-card p-5">
           <h2 className="mb-1 text-base md:text-lg">Short-Form Content Engine</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>

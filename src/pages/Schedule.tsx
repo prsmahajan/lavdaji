@@ -11,7 +11,7 @@ const Schedule = () => {
         </p>
       </section>
 
-      <section className="mt-8 space-y-4 rounded-lg border bg-card p-5">
+      <section className="mt-10 space-y-4 rounded-lg border bg-card p-6">
         <div className="space-y-2 text-sm text-muted-foreground">
           <p>
             We will walk through your current setup, pick one priority system (video, sales, or marketing), and map what

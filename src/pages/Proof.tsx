@@ -12,8 +12,8 @@ const Proof = () => {
         </p>
       </section>
 
-      <section className="mt-10 space-y-5">
-        <Card className="p-5">
+      <section className="mt-12 space-y-5 border-t pt-6 md:mt-20 md:pt-10">
+        <Card className="p-6">
           <h2 className="mb-1 text-base md:text-lg">Short-Form Content Engine</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">
@@ -33,7 +33,7 @@ const Proof = () => {
           <p className="text-xs text-muted-foreground">Implementation stack available on request.</p>
         </Card>
 
-        <Card className="p-5">
+        <Card className="p-6">
           <h2 className="mb-1 text-base md:text-lg">Inbound Lead to Booked Call System</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">
@@ -51,7 +51,7 @@ const Proof = () => {
           <p className="text-xs text-muted-foreground">Implementation stack available on request.</p>
         </Card>
 
-        <Card className="p-5">
+        <Card className="p-6">
           <h2 className="mb-1 text-base md:text-lg">Content to Conversion Loop</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">
@@ -69,7 +69,7 @@ const Proof = () => {
           <p className="text-xs text-muted-foreground">Implementation stack available on request.</p>
         </Card>
 
-        <Card className="p-5">
+        <Card className="p-6">
           <h2 className="mb-1 text-base md:text-lg">Always-On Nurture Layer</h2>
           <p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">Problem</p>
           <p className="mb-3 text-sm text-muted-foreground">

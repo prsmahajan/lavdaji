@@ -12,7 +12,7 @@ const WhatIBuild = () => {
         </p>
       </section>
 
-      <section className="mt-10 space-y-6">
+      <section className="mt-12 space-y-6 border-t pt-6 md:mt-20 md:pt-10">
         <Card className="space-y-3 p-6">
           <h2>AI Video Automation</h2>
           <p className="text-sm text-muted-foreground">
@@ -38,7 +38,9 @@ const WhatIBuild = () => {
             <li>• Structured follow-ups and reminders that don&apos;t feel spammy</li>
             <li>• CRM hygiene and pipeline updates you can actually trust</li>
           </ul>
-          <p className="text-sm font-medium text-foreground">Outcome: faster decisions and fewer &quot;we forgot to follow up&quot; moments.</p>
+          <p className="text-sm font-medium text-foreground">
+            Outcome: faster decisions and fewer &quot;we forgot to follow up&quot; moments.
+          </p>
         </Card>
 
         <Card className="space-y-3 p-6">

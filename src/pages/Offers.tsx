@@ -28,7 +28,7 @@ const Offers = () => {
               <li>• Recording + summary notes</li>
             </ul>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 space-y-1.5">
             <Button
               type="button"
               variant="cta"
@@ -39,6 +39,9 @@ const Offers = () => {
             >
               Schedule an Audit
             </Button>
+            <p className="text-xs text-muted-foreground">
+              You&apos;ll open a calendar to pick a time. No prep needed beyond a rough sense of your current systems.
+            </p>
           </div>
         </Card>
 
@@ -57,7 +60,7 @@ const Offers = () => {
               <li>• Plain-language documentation + handover</li>
             </ul>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 space-y-1.5">
             <Button
               type="button"
               variant="cta"
@@ -68,6 +71,9 @@ const Offers = () => {
             >
               Talk about a system build
             </Button>
+            <p className="text-xs text-muted-foreground">
+              We&apos;ll use the call to define scope, success metrics, and whether the build is a good fit right now.
+            </p>
           </div>
         </Card>
 
@@ -87,7 +93,7 @@ const Offers = () => {
               Best for founders and small teams who want leverage, not busywork.
             </p>
           </div>
-          <div className="mt-4">
+          <div className="mt-4 space-y-1.5">
             <Button
               type="button"
               variant="cta"
@@ -98,6 +104,9 @@ const Offers = () => {
             >
               Explore partnership
             </Button>
+            <p className="text-xs text-muted-foreground">
+              We&apos;ll explore where ongoing support would create the most leverage and whether a retainer makes sense.
+            </p>
           </div>
         </Card>
       </section>

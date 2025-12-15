@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FaqItem } from "@/components/FaqItem";
@@ -48,26 +49,25 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-12 border-t pt-6 md:mt-20 md:pt-10">
-         <h2 className="mb-2 md:mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-           Who this is for
-         </h2>
-         <div className="grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
-           <p>
-             Founders and small teams who are done with one-off campaigns and want calm, compounding acquisition and
-             nurture systems.
-           </p>
-           <p>
-             Creators and experts who are ready to treat their content and pipeline like assets, not a never-ending todo
-             list.
-           </p>
-         </div>
-       </section>
+      <section className="mt-12 border-t pt-6 md:mt-20 md:pt-10" aria-labelledby="home-who-this-is-for">
+        <SectionHeader id="home-who-this-is-for" label="Who this is for" />
+        <div className="mt-4 grid gap-4 text-sm text-muted-foreground md:grid-cols-2">
+          <p>
+            Founders and small teams who are done with one-off campaigns and want calm, compounding acquisition and
+            nurture systems.
+          </p>
+          <p>
+            Creators and experts who are ready to treat their content and pipeline like assets, not a never-ending todo
+            list.
+          </p>
+        </div>
+      </section>
 
-      <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-what-i-build">
-        <h2 id="home-what-i-build" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          What I build
-        </h2>
+      <section
+        className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10"
+        aria-labelledby="home-what-i-build"
+      >
+        <SectionHeader id="home-what-i-build" label="What I build" />
         <div className="grid gap-6 md:grid-cols-2">
           <Card className="space-y-3 p-6">
             <h3 className="text-sm font-semibold text-foreground">AI Video Automation</h3>
@@ -120,9 +120,7 @@ const Index = () => {
       </section>
 
       <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-offers">
-        <h2 id="home-offers" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          Offers
-        </h2>
+        <SectionHeader id="home-offers" label="Offers" />
         <div className="grid gap-6 md:grid-cols-2">
           <Card className="flex flex-col justify-between p-6">
             <div className="space-y-3">
@@ -178,9 +176,7 @@ const Index = () => {
       </section>
 
       <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-faq">
-        <h2 id="home-faq" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          FAQ
-        </h2>
+        <SectionHeader id="home-faq" label="FAQ" />
         <div className="space-y-4">
           <FaqItem
             question="Do you work with agencies, creators, or founders?"

@@ -13,7 +13,7 @@ const Offers = () => {
         </p>
       </section>
 
-      <section className="mt-10 grid gap-6 md:grid-cols-2">
+      <section className="mt-12 grid gap-6 border-t pt-6 md:mt-20 md:grid-cols-2 md:pt-10">
         <Card className="flex flex-col justify-between p-6">
           <div className="space-y-3">
             <h2>Automation Audit</h2>

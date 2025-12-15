@@ -11,7 +11,7 @@ const Process = () => {
         </p>
       </section>
 
-      <section className="mt-10 grid gap-4 md:grid-cols-2">
+      <section className="mt-12 grid gap-4 border-t pt-6 md:mt-20 md:grid-cols-2 md:pt-10">
         <Card className="flex flex-col gap-2 p-5">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">01 · Diagnose</p>
           <p className="text-sm text-foreground">

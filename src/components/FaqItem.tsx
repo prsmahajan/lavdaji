@@ -32,6 +32,7 @@ export const FaqItem = ({ question, answer, isOpen, onToggle }: FaqItemProps) =>
       role="button"
       aria-expanded={open}
       tabIndex={0}
+      data-faq-card="true"
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();

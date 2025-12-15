@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { FaqItem } from "@/components/FaqItem";
@@ -48,6 +48,26 @@ const faqItems = [
 
 const FAQ = () => {
   const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+
+      if (target?.closest?.('[data-faq-card="true"]')) {
+        return;
+      }
+
+      setOpenQuestion(null);
+    };
+
+    if (openQuestion) {
+      document.addEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [openQuestion]);
 
   return (
     <Layout>

@@ -24,7 +24,7 @@ const Schedule = () => {
               sensible step is either way.
             </p>
           </div>
-          <div className="pt-1">
+          <div className="pt-1 space-y-1.5">
             <Button
               type="button"
               variant="cta"
@@ -35,6 +35,9 @@ const Schedule = () => {
             >
               Open calendar
             </Button>
+            <p className="text-xs text-muted-foreground">
+              You&apos;ll see available slots in your local time and get a calendar invite immediately after booking.
+            </p>
           </div>
         </Card>
       </section>

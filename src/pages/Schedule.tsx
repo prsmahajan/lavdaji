@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { trackEvent } from "@/lib/analytics";
 
 const Schedule = () => {
   return (
@@ -16,8 +17,8 @@ const Schedule = () => {
         <Card className="space-y-4 p-6">
           <div className="space-y-2 text-sm text-muted-foreground">
             <p>
-              We will walk through your current setup, pick one priority system (video, sales, or marketing), and map
-              what &quot;better" looks like.
+              We will walk through your current setup, pick one priority system (video, sales, or marketing), and map what
+              &quot;better" looks like.
             </p>
             <p>
               By the end, you will know whether we should work together now, later, or not at all — and what the next
@@ -32,6 +33,11 @@ const Schedule = () => {
               data-cal-link="prsmahajan/60"
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
+              onClick={() =>
+                trackEvent("schedule_cta_click", {
+                  location: "schedule_page_main",
+                })
+              }
             >
               Open calendar
             </Button>

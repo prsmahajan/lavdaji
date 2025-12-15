@@ -1,5 +1,7 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { applyTheme, getStoredTheme, Theme } from "@/lib/theme";
+import { trackEvent } from "@/lib/analytics";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -14,6 +16,32 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
+  const [theme, setTheme] = useState<Theme | null>(null);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+
+    const stored = getStoredTheme();
+    const hasDarkClass = document.documentElement.classList.contains("dark");
+
+    let initial: Theme = hasDarkClass ? "dark" : "light";
+
+    if (stored) {
+      initial = stored;
+      applyTheme(initial);
+    }
+
+    setTheme(initial);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next: Theme = prev === "dark" ? "light" : "dark";
+      applyTheme(next);
+      return next;
+    });
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-20 border-b bg-background/90 backdrop-blur-sm">
@@ -28,7 +56,7 @@ export const Layout = ({ children }: LayoutProps) => {
             <span className="hidden text-sm md:inline">Paras Mahajan</span>
           </a>
 
-          <div className="flex flex-1 items-center justify-end gap-6">
+          <div className="flex flex-1 items-center justify-end gap-4 md:gap-6">
             <div className="hidden items-center gap-5 text-xs md:flex md:text-sm">
               {navItems.map((item) => (
                 <a
@@ -41,6 +69,18 @@ export const Layout = ({ children }: LayoutProps) => {
               ))}
             </div>
 
+            {theme && (
+              <button
+                type="button"
+                onClick={toggleTheme}
+                className="inline-flex h-8 items-center rounded-full border border-border px-3 text-xs text-muted-foreground hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring/60"
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                <span className="mr-1.5 h-1.5 w-1.5 rounded-full bg-foreground/60" />
+                <span>{theme === "dark" ? "Dark" : "Light"}</span>
+              </button>
+            )}
+
             <Button
               type="button"
               variant="cta"
@@ -48,6 +88,11 @@ export const Layout = ({ children }: LayoutProps) => {
               data-cal-link="prsmahajan/60"
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
+              onClick={() =>
+                trackEvent("schedule_cta_click", {
+                  location: "header",
+                })
+              }
             >
               Schedule a conversation
             </Button>

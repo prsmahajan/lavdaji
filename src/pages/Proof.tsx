@@ -1,15 +1,17 @@
 import { Layout } from "@/components/Layout";
+import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/ui/card";
 
 const Proof = () => {
   return (
     <Layout>
-      <section className="space-y-6">
-        <h1>Proof: systems in the wild</h1>
-        <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
-          A few representative systems. Names and specific numbers are intentionally generalized; details are available
-          in a working session.
-        </p>
+      <section className="space-y-4">
+        <h1 className="sr-only">Proof: systems in the wild</h1>
+        <SectionHeader
+          id="proof"
+          label="Proof: systems in the wild"
+          description="A few representative systems. Names and specific numbers are intentionally generalized; details are available in a working session."
+        />
       </section>
 
       <section className="mt-12 space-y-5 border-t pt-6 md:mt-20 md:pt-10">

@@ -3,11 +3,8 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/what-i-build", label: "What I Build" },
   { href: "/proof", label: "Proof" },
-  { href: "/offers", label: "Offers" },
   { href: "/process", label: "Process" },
-  { href: "/faq", label: "FAQ" },
   { href: "/schedule", label: "Schedule" },
   { href: "/contact", label: "Contact" },
 ];

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,8 @@ import { Card } from "@/components/ui/card";
 import { FaqItem } from "@/components/FaqItem";
 
 const Index = () => {
+  const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
   return (
     <Layout>
       <section className="space-y-8 md:space-y-10">
@@ -178,26 +181,43 @@ const Index = () => {
       <section className="mt-12 border-t pt-6 space-y-6 md:mt-20 md:pt-10" aria-labelledby="home-faq">
         <SectionHeader id="home-faq" label="FAQ" />
         <div className="space-y-4">
-          <FaqItem
-            question="Do you work with agencies, creators, or founders?"
-            answer="All three. I work best with leaders who are close to the work and want systems that support them, not replace them."
-          />
-          <FaqItem
-            question="How long does a system take to build?"
-            answer="Most core systems are designed and launched in 2–4 weeks. Larger, multi-channel builds can take longer depending on scope."
-          />
-          <FaqItem
-            question="Do I need a big audience before we start?"
-            answer="No. What matters is a clear offer and a way people currently find you. Systems help you compound what is already working."
-          />
-          <FaqItem
-            question="Will this replace my team?"
-            answer="No. Automations remove repetitive work so your team can focus on judgment, conversation, and strategy."
-          />
-          <FaqItem
-            question="What do you need from me to start?"
-            answer="Access to your current tools, clarity on your main revenue goal, and 1–2 focused sessions where we walk through how you work today."
-          />
+          {[
+            {
+              question: "Do you work with agencies, creators, or founders?",
+              answer:
+                "All three. I work best with leaders who are close to the work and want systems that support them, not replace them.",
+            },
+            {
+              question: "How long does a system take to build?",
+              answer:
+                "Most core systems are designed and launched in 2–4 weeks. Larger, multi-channel builds can take longer depending on scope.",
+            },
+            {
+              question: "Do I need a big audience before we start?",
+              answer:
+                "No. What matters is a clear offer and a way people currently find you. Systems help you compound what is already working.",
+            },
+            {
+              question: "Will this replace my team?",
+              answer:
+                "No. Automations remove repetitive work so your team can focus on judgment, conversation, and strategy.",
+            },
+            {
+              question: "What do you need from me to start?",
+              answer:
+                "Access to your current tools, clarity on your main revenue goal, and 1–2 focused sessions where we walk through how you work today.",
+            },
+          ].map((item) => (
+            <FaqItem
+              key={item.question}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openQuestion === item.question}
+              onToggle={() =>
+                setOpenQuestion((current) => (current === item.question ? null : item.question))
+              }
+            />
+          ))}
         </div>
       </section>
     </Layout>

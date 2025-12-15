@@ -11,7 +11,7 @@ const Contact = () => {
         </p>
       </section>
 
-      <section className="mt-8 space-y-6 rounded-lg border bg-card p-5">
+      <section className="mt-10 space-y-6 rounded-lg border bg-card p-6">
         <div className="space-y-2 text-sm text-muted-foreground">
           <p>Email: [add your best contact email]</p>
           <p>

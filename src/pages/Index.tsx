@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 const Index = () => {
   return (
     <Layout>
-      <section className="space-y-8">
-        <div className="space-y-4">
+      <section className="space-y-10">
+        <div className="mx-auto max-w-2xl space-y-4 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
             AI automation, sales, and marketing systems
           </p>
@@ -18,7 +18,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="space-y-3 text-sm text-muted-foreground">
+        <div className="mx-auto max-w-2xl space-y-3 text-sm text-muted-foreground">
           <p>
             You already have signals: leads coming in, content that works, conversations that convert. The gap is a
             system that runs daily without you having to push every step.
@@ -29,7 +29,7 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center">
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row sm:items-center sm:justify-center">
           <Button
             type="button"
             variant="cta"
@@ -62,12 +62,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-16 space-y-6 md:mt-20" aria-labelledby="home-what-i-build">
+      <section className="mt-20 space-y-6 md:mt-24" aria-labelledby="home-what-i-build">
         <h2 id="home-what-i-build" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           What I build
         </h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <article className="space-y-3 rounded-lg border bg-card p-5">
+        <div className="grid gap-6 md:grid-cols-2">
+          <article className="space-y-3 rounded-lg border bg-card p-6">
             <h3 className="text-sm font-semibold text-foreground">AI Video Automation</h3>
             <p className="text-sm text-muted-foreground">
               For founders and creators who want consistent video output without turning content into a full-time job.
@@ -83,7 +83,7 @@ const Index = () => {
             </p>
           </article>
 
-          <article className="space-y-3 rounded-lg border bg-card p-5">
+          <article className="space-y-3 rounded-lg border bg-card p-6">
             <h3 className="text-sm font-semibold text-foreground">AI Sales Automation</h3>
             <p className="text-sm text-muted-foreground">
               For teams that want every qualified lead captured, routed, and followed up with — automatically.
@@ -99,7 +99,7 @@ const Index = () => {
             </p>
           </article>
 
-          <article className="space-y-3 rounded-lg border bg-card p-5">
+          <article className="space-y-3 rounded-lg border bg-card p-6">
             <h3 className="text-sm font-semibold text-foreground">AI Marketing Systems</h3>
             <p className="text-sm text-muted-foreground">
               For businesses that want clear loops from audience → content → conversion, instead of disconnected
@@ -118,12 +118,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-16 space-y-6 md:mt-20" aria-labelledby="home-offers">
+      <section className="mt-20 space-y-6 md:mt-24" aria-labelledby="home-offers">
         <h2 id="home-offers" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           Offers
         </h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          <article className="flex flex-col justify-between rounded-lg border bg-card p-5">
+        <div className="grid gap-6 md:grid-cols-2">
+          <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold text-foreground">Automation Audit</h3>
               <p className="text-sm text-muted-foreground">
@@ -139,7 +139,7 @@ const Index = () => {
             </div>
           </article>
 
-          <article className="flex flex-col justify-between rounded-lg border bg-card p-5">
+          <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold text-foreground">Build a Revenue System</h3>
               <p className="text-sm text-muted-foreground">
@@ -156,7 +156,7 @@ const Index = () => {
             </div>
           </article>
 
-          <article className="flex flex-col justify-between rounded-lg border bg-card p-5">
+          <article className="flex flex-col justify-between rounded-lg border bg-card p-6">
             <div className="space-y-3">
               <h3 className="text-sm font-semibold text-foreground">Ongoing Systems Partnership</h3>
               <p className="text-sm text-muted-foreground">
@@ -176,12 +176,12 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="mt-16 space-y-6 md:mt-20" aria-labelledby="home-faq">
+      <section className="mt-20 space-y-6 md:mt-24" aria-labelledby="home-faq">
         <h2 id="home-faq" className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
           FAQ
         </h2>
-        <div className="space-y-3">
-          <details className="rounded-lg border bg-card p-4 text-sm">
+        <div className="space-y-4">
+          <details className="rounded-lg border bg-card p-5 text-sm">
             <summary className="cursor-pointer list-none font-medium text-foreground">
               Do you work with agencies, creators, or founders?
             </summary>
@@ -191,7 +191,7 @@ const Index = () => {
             </p>
           </details>
 
-          <details className="rounded-lg border bg-card p-4 text-sm">
+          <details className="rounded-lg border bg-card p-5 text-sm">
             <summary className="cursor-pointer list-none font-medium text-foreground">
               How long does a system take to build?
             </summary>
@@ -201,7 +201,7 @@ const Index = () => {
             </p>
           </details>
 
-          <details className="rounded-lg border bg-card p-4 text-sm">
+          <details className="rounded-lg border bg-card p-5 text-sm">
             <summary className="cursor-pointer list-none font-medium text-foreground">
               Do I need a big audience before we start?
             </summary>
@@ -211,7 +211,7 @@ const Index = () => {
             </p>
           </details>
 
-          <details className="rounded-lg border bg-card p-4 text-sm">
+          <details className="rounded-lg border bg-card p-5 text-sm">
             <summary className="cursor-pointer list-none font-medium text-foreground">
               Will this replace my team?
             </summary>
@@ -220,7 +220,7 @@ const Index = () => {
             </p>
           </details>
 
-          <details className="rounded-lg border bg-card p-4 text-sm">
+          <details className="rounded-lg border bg-card p-5 text-sm">
             <summary className="cursor-pointer list-none font-medium text-foreground">
               What do you need from me to start?
             </summary>

@@ -147,12 +147,61 @@ export const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
 
-      <footer className="border-t bg-background/80 py-6 text-xs text-muted-foreground md:py-8">
-        <div className="container max-w-3xl space-y-1 md:flex md:max-w-4xl md:items-center md:justify-between md:space-y-0">
-          <p>Quietly building durable, automated revenue systems.</p>
-          <p>
-            Initiative for stray animals: <a href="https://theopendraft.com">theopendraft.com</a>
-          </p>
+      <footer className="border-t bg-background/80 py-8 text-xs text-muted-foreground md:py-10">
+        <div className="container max-w-3xl space-y-8 md:max-w-4xl md:grid md:grid-cols-[2fr,1.5fr,1.5fr] md:items-start md:gap-8 md:space-y-0">
+          <div className="space-y-2">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground/80">
+              Portfolio
+            </p>
+            <p className="text-sm font-medium text-foreground">Paras Mahajan</p>
+            <p className="max-w-md text-xs leading-relaxed text-muted-foreground">
+              Quietly building durable, automated revenue systems for founders, creators, and lean teams.
+            </p>
+          </div>
+
+          <nav aria-label="Footer navigation" className="space-y-2 text-xs">
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">
+              Navigate
+            </p>
+            <div className="flex flex-col gap-1 text-xs">
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-muted-foreground hover:text-foreground/90 transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+
+          <div className="space-y-2 text-xs">
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">
+              Contact
+            </p>
+            <p className="text-muted-foreground">
+              Based in India · Working with teams globally.
+            </p>
+            <p>
+              <a
+                href="mailto:hello@paras.build"
+                className="text-foreground/90 hover:text-foreground underline-offset-2 hover:underline"
+              >
+                hello@paras.build
+              </a>
+            </p>
+            <p className="pt-1 text-[11px] text-muted-foreground/80">
+              Initiative for stray animals: {" "}
+              <a
+                href="https://theopendraft.com"
+                className="underline underline-offset-2 hover:text-foreground"
+                rel="noreferrer"
+              >
+                theopendraft.com
+              </a>
+            </p>
+          </div>
         </div>
       </footer>
     </div>

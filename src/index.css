@@ -96,7 +96,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased font-sans;
+    @apply bg-background text-foreground antialiased font-sans md:cursor-none;
   }
 
   .theme-transition,

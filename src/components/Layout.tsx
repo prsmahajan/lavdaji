@@ -174,10 +174,18 @@ export const Layout = ({ children }: LayoutProps) => {
             <p className="text-muted-foreground">Based in India · Working with teams globally.</p>
             <p>
               <a
-                href="mailto:hello@paras.build"
+                href="mailto:paras@prsmahajan.com"
                 className="text-foreground/90 hover:text-foreground underline-offset-2 hover:underline"
               >
-                hello@paras.build
+                paras@prsmahajan.com
+              </a>
+            </p>
+            <p>
+              <a
+                href="tel:+919041162603"
+                className="text-muted-foreground hover:text-foreground underline-offset-2 hover:underline"
+              >
+                +91 (904)11 62603
               </a>
             </p>
             <p className="pt-1 text-[11px] text-muted-foreground/80">

@@ -12,11 +12,13 @@ import FAQ from "./pages/FAQ";
 import Schedule from "./pages/Schedule";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
+    <SpeedInsights />
     <TooltipProvider>
       <Toaster />
       <Sonner />

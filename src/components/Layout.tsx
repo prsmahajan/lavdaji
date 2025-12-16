@@ -1,4 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
+import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { applyTheme, getStoredTheme, Theme } from "@/lib/theme";
@@ -82,9 +83,11 @@ export const Layout = ({ children }: LayoutProps) => {
             href="/"
             className="flex items-center gap-2 text-sm font-medium tracking-tight text-foreground/80 hover:text-foreground"
           >
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-md border border-border text-xs font-semibold">
-              P
-            </span>
+            <img
+              src={logo}
+              alt="prs. logo"
+              className="h-7 w-auto rounded-[3px] border border-border/80 bg-background object-contain"
+            />
             <span className="hidden text-sm md:inline">Paras Mahajan</span>
           </a>
 

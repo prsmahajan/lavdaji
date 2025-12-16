@@ -15,24 +15,15 @@ const Contact = () => {
       <section className="mt-10">
         <Card className="space-y-6 p-6">
           <div className="space-y-2 text-sm text-muted-foreground">
-            <p>Email: [add your best contact email]</p>
+            <p>Email: <a href="mailto:paras@prsmahajan.com" className="text-foreground underline-offset-2 hover:underline">paras@prsmahajan.com</a></p>
+            <p>Phone: <a href="tel:+919041162603" className="text-foreground underline-offset-2 hover:underline">+91 (904)11 62603</a></p>
+          </div>
+
+          <div className="space-y-2 text-sm text-muted-foreground">
             <p>
               Optional: add links to platforms you actually use (LinkedIn, Twitter, newsletter) once you are ready to
               share them.
             </p>
-          </div>
-
-          <div className="pt-1">
-            <Button
-              type="button"
-              variant="cta"
-              size="lg"
-              data-cal-link="prsmahajan/60"
-              data-cal-namespace="60"
-              data-cal-config='{"layout":"month_view"}'
-            >
-              Schedule a conversation
-            </Button>
           </div>
         </Card>
       </section>

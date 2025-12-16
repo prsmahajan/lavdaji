@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink as RouterNavLink } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
@@ -67,7 +68,7 @@ const Index = () => {
             Schedule a conversation
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="/proof">See systems in action</a>
+            <RouterNavLink to="/proof">See systems in action</RouterNavLink>
           </Button>
         </div>
       </section>

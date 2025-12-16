@@ -88,17 +88,13 @@ export const Layout = ({ children }: LayoutProps) => {
               alt="prs. logo"
               className="h-7 w-auto rounded-[3px] border border-border/80 bg-background object-contain"
             />
-            <span className="hidden text-sm md:inline">Paras Mahajan</span>
+            {/* <span className="hidden text-sm md:inline">Paras Mahajan</span> */}
           </a>
 
           <div className="flex flex-1 items-center justify-end gap-4 md:gap-6">
             <div className="hidden items-center gap-5 text-xs md:flex md:text-sm">
               {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="font-semibold text-foreground/90 hover:text-foreground"
-                >
+                <a key={item.href} href={item.href} className="font-semibold text-foreground/90 hover:text-foreground">
                   {item.label}
                 </a>
               ))}
@@ -146,16 +142,12 @@ export const Layout = ({ children }: LayoutProps) => {
         </nav>
       </header>
 
-      <main className="container pb-16 pt-10 md:pb-24 md:pt-16 max-w-3xl lg:max-w-4xl">
-        {children}
-      </main>
+      <main className="container pb-16 pt-10 md:pb-24 md:pt-16 max-w-3xl lg:max-w-4xl">{children}</main>
 
       <footer className="border-t bg-background/80 py-8 text-xs text-muted-foreground md:py-10">
         <div className="container max-w-3xl space-y-8 md:max-w-4xl md:grid md:grid-cols-[2fr,1.5fr,1.5fr] md:items-start md:gap-8 md:space-y-0">
           <div className="space-y-2">
-            <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground/80">
-              Portfolio
-            </p>
+            <p className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground/80">Portfolio</p>
             <p className="text-sm font-medium text-foreground">Paras Mahajan</p>
             <p className="max-w-md text-xs leading-relaxed text-muted-foreground">
               Quietly building durable, automated revenue systems for founders, creators, and lean teams.
@@ -163,9 +155,7 @@ export const Layout = ({ children }: LayoutProps) => {
           </div>
 
           <nav aria-label="Footer navigation" className="space-y-2 text-xs">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">
-              Navigate
-            </p>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">Navigate</p>
             <div className="flex flex-col gap-1 text-xs">
               {navItems.map((item) => (
                 <a
@@ -180,12 +170,8 @@ export const Layout = ({ children }: LayoutProps) => {
           </nav>
 
           <div className="space-y-2 text-xs">
-            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">
-              Contact
-            </p>
-            <p className="text-muted-foreground">
-              Based in India · Working with teams globally.
-            </p>
+            <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">Contact</p>
+            <p className="text-muted-foreground">Based in India · Working with teams globally.</p>
             <p>
               <a
                 href="mailto:hello@paras.build"
@@ -195,7 +181,7 @@ export const Layout = ({ children }: LayoutProps) => {
               </a>
             </p>
             <p className="pt-1 text-[11px] text-muted-foreground/80">
-              Initiative for stray animals: {" "}
+              Initiative for stray animals:{" "}
               <a
                 href="https://theopendraft.com"
                 className="underline underline-offset-2 hover:text-foreground"

@@ -11,14 +11,9 @@
       ]
     }
   ],
-  "rewrites": [
-    {
-      "source": "/_vercel/speed-insights/:match*",
-      "destination": "/_vercel/speed-insights/:match*"
-    },
-    {
-      "source": "/((?!assets/|favicon.ico|robots.txt|site.webmanifest|manifest.webmanifest|sitemap.xml).*)",
-      "destination": "/index.html"
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/_vercel/speed-insights(.*)", "dest": "/_vercel/speed-insights$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

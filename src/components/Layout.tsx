@@ -129,8 +129,8 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div
-        className="fixed inset-x-0 top-0 z-30 h-[2px] bg-primary/40"
-        style={{ transform: `scaleX(${Math.max(scrollPercent, 2) / 100})`, transformOrigin: "left" }}
+        className="fixed inset-x-0 top-0 z-30 h-[3px] origin-left bg-gradient-to-r from-background/95 via-muted/75 to-muted-foreground/80 transition-transform duration-150 ease-out"
+        style={{ transform: `scaleX(${Math.max(scrollPercent, 2) / 100})` }}
         aria-hidden="true"
       />
       <header className="sticky top-0 z-20 border-b bg-background/90 backdrop-blur-sm">
@@ -253,7 +253,7 @@ export const Layout = ({ children }: LayoutProps) => {
               </a>
             </p>
             <p className="pt-1 text-[11px] text-muted-foreground/80">
-              Initiative for stray animals:{" "}
+              Initiative for stray animals: {" "}
               <a
                 href="https://theopendraft.com"
                 className="underline underline-offset-2 hover:text-foreground"

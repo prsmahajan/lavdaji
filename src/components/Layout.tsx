@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { NavLink as RouterNavLink } from "react-router-dom";
+import { NavLink as RouterNavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -19,7 +19,10 @@ interface LayoutProps {
 }
 
 export const Layout = ({ children }: LayoutProps) => {
+  const location = useLocation();
   const [theme, setTheme] = useState<Theme | null>(null);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [cursorVisible, setCursorVisible] = useState(false);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -67,6 +70,29 @@ export const Layout = ({ children }: LayoutProps) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const handleMove = (event: MouseEvent) => {
+      setCursorPosition({ x: event.clientX, y: event.clientY });
+      if (!cursorVisible) {
+        setCursorVisible(true);
+      }
+    };
+
+    const handleLeave = () => {
+      setCursorVisible(false);
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      window.removeEventListener("mouseleave", handleLeave);
+    };
+  }, [cursorVisible]);
 
   const toggleTheme = () => {
     setTheme((prev) => {
@@ -147,7 +173,12 @@ export const Layout = ({ children }: LayoutProps) => {
         </nav>
       </header>
 
-      <main className="container pb-16 pt-10 md:pb-24 md:pt-16 max-w-3xl lg:max-w-4xl">{children}</main>
+      <main
+        key={location.pathname}
+        className="container pb-16 pt-10 md:pb-24 md:pt-16 max-w-3xl lg:max-w-4xl animate-fade-in"
+      >
+        {children}
+      </main>
 
       <footer className="border-t bg-background/80 py-8 text-xs text-muted-foreground md:py-10">
         <div className="container max-w-3xl space-y-8 md:max-w-4xl md:grid md:grid-cols-[2fr,1.5fr,1.5fr] md:items-start md:gap-8 md:space-y-0">

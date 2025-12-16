@@ -1,5 +1,25 @@
 import { createRoot } from "react-dom/client";
+import Lenis from "lenis";
 import App from "./App.tsx";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+const rootElement = document.getElementById("root");
+
+if (rootElement) {
+  const root = createRoot(rootElement);
+
+  const lenis = new Lenis({
+    duration: 1.1,
+    easing: (t: number) => 1 - Math.pow(1 - t, 3),
+    smoothWheel: true,
+  });
+
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  root.render(<App />);
+}

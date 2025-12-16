@@ -175,7 +175,7 @@ export const Layout = ({ children }: LayoutProps) => {
             <p>
               <a
                 href="mailto:paras@prsmahajan.com"
-                className="text-foreground/90 text-[11px] hover:text-foreground underline-offset-2 hover:underline"
+                className="text-foreground/90 text-[15px] hover:text-foreground underline-offset-2 hover:underline"
               >
                 paras@prsmahajan.com
               </a>
@@ -183,7 +183,7 @@ export const Layout = ({ children }: LayoutProps) => {
             <p>
               <a
                 href="tel:+919041162603"
-                className="text-muted-foreground text-[11px] hover:text-foreground underline-offset-2 hover:underline"
+                className="text-muted-foreground text-[15px] hover:text-foreground underline-offset-2 hover:underline"
               >
                 +91 (904)11 62603
               </a>

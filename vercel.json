@@ -5,9 +5,14 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' https://app.cal.com; connect-src 'self' https://app.cal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://lovable.dev; frame-src https://app.cal.com;"
+          "value": "default-src 'self'; script-src 'self' https://app.cal.com; connect-src 'self' https://app.cal.com https://vitals.vercel-insights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://app.cal.com;"
         }
       ]
     }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/_vercel/speed-insights(.*)", "dest": "/_vercel/speed-insights$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }

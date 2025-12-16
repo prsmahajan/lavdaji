@@ -7,10 +7,16 @@ import { Card } from "@/components/ui/card";
 import { FaqItem } from "@/components/FaqItem";
 import { Skeleton } from "@/components/ui/skeleton";
 
+type NavigatorWithConnection = Navigator & {
+  connection?: {
+    effectiveType?: string;
+  };
+};
+
 const getInitialSkeletonState = () => {
   if (typeof navigator === "undefined") return false;
-  const nav = navigator as any;
-  const effectiveType = nav.connection?.effectiveType as string | undefined;
+  const nav = navigator as NavigatorWithConnection;
+  const effectiveType = nav.connection?.effectiveType;
 
   if (!effectiveType) return false;
 

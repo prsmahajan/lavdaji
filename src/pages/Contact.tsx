@@ -34,24 +34,24 @@ const Contact = () => {
               </a>
             </p>
 
-            <div className="pt-1 flex flex-wrap gap-3 text-xs md:text-sm">
+            <div className="pt-1 flex flex-wrap gap-3 text-sm md:text-base">
               <a
                 href="https://linkedin.com/in/prsmahajan"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground hover-scale"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground hover-scale"
               >
-                <Linkedin className="h-4 w-4" aria-hidden="true" />
-                <span>LinkedIn</span>
+                <Linkedin className="h-5 w-5" aria-hidden="true" />
+                <span className="font-semibold">LinkedIn</span>
               </a>
               <a
                 href="https://x.com/prsmahajan"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground hover-scale"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground hover-scale"
               >
-                <Twitter className="h-4 w-4" aria-hidden="true" />
-                <span>Twitter / X</span>
+                <Twitter className="h-5 w-5" aria-hidden="true" />
+                <span className="font-semibold">Twitter / X</span>
               </a>
             </div>
 
@@ -66,13 +66,6 @@ const Contact = () => {
               >
                 Schedule a conversation
               </Button>
-            </div>
-
-            <div className="pt-2 text-xs md:text-sm">
-              <p>
-                Optional: add links to platforms you actually use (LinkedIn, Twitter, newsletter) once you are ready to
-                share them.
-              </p>
             </div>
           </div>
         </Card>

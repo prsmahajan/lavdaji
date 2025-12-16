@@ -24,6 +24,7 @@ export const Layout = ({ children }: LayoutProps) => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
   const [cursorHoveringInteractive, setCursorHoveringInteractive] = useState(false);
+  const [scrollPercent, setScrollPercent] = useState(0);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -54,6 +55,8 @@ export const Layout = ({ children }: LayoutProps) => {
 
       const depth = Math.min(100, Math.round((scrollTop / docHeight) * 100));
       const bucket = Math.floor(depth / 25) * 25;
+
+      setScrollPercent(depth);
 
       if (bucket > lastTrackedBucket && bucket >= 25) {
         lastTrackedBucket = bucket;
@@ -125,6 +128,11 @@ export const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <div
+        className="fixed inset-x-0 top-0 z-30 h-[2px] bg-primary/40"
+        style={{ transform: `scaleX(${Math.max(scrollPercent, 2) / 100})`, transformOrigin: "left" }}
+        aria-hidden="true"
+      />
       <header className="sticky top-0 z-20 border-b bg-background/90 backdrop-blur-sm">
         <nav className="container flex items-center justify-between gap-4 py-2 md:py-3">
           <RouterNavLink
@@ -259,10 +267,10 @@ export const Layout = ({ children }: LayoutProps) => {
       </footer>
 
       <div
-        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/40 bg-background/70 shadow-sm backdrop-blur-sm transition-[transform,opacity,transform] duration-200 md:block"
+        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/40 bg-background/60 shadow-sm backdrop-blur-sm transition-[transform,opacity] duration-200 md:block"
         style={{
-          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorHoveringInteractive ? 1.25 : 1})`,
-          opacity: cursorVisible ? 1 : 0,
+          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorHoveringInteractive ? 1.35 : 1})`,
+          opacity: cursorVisible ? 0.85 : 0,
         }}
         aria-hidden="true"
       />

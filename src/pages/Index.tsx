@@ -5,9 +5,31 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { FaqItem } from "@/components/FaqItem";
+import { Skeleton } from "@/components/ui/skeleton";
+
+const getInitialSkeletonState = () => {
+  if (typeof navigator === "undefined") return false;
+  const nav = navigator as any;
+  const effectiveType = nav.connection?.effectiveType as string | undefined;
+
+  if (!effectiveType) return false;
+
+  return effectiveType === "3g" || effectiveType === "2g" || effectiveType === "slow-2g";
+};
 
 const Index = () => {
+  const [showSkeleton, setShowSkeleton] = useState<boolean>(getInitialSkeletonState);
   const [openQuestion, setOpenQuestion] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!showSkeleton) return;
+
+    const timeout = window.setTimeout(() => {
+      setShowSkeleton(false);
+    }, 1200);
+
+    return () => window.clearTimeout(timeout);
+  }, [showSkeleton]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -28,6 +50,65 @@ const Index = () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [openQuestion]);
+
+  if (showSkeleton) {
+    return (
+      <Layout>
+        <section className="space-y-8 md:space-y-10" aria-busy="true" aria-label="Loading home content">
+          <div className="mx-auto max-w-2xl space-y-4 text-center">
+            <Skeleton className="mx-auto h-3 w-48" />
+            <Skeleton className="mx-auto h-6 w-80" />
+            <Skeleton className="mx-auto h-4 w-72" />
+          </div>
+
+          <div className="mx-auto mt-4 max-w-2xl space-y-2">
+            <Skeleton className="h-3 w-full" />
+            <Skeleton className="h-3 w-11/12" />
+          </div>
+
+          <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:items-center sm:justify-center">
+            <Skeleton className="h-11 w-48 rounded-full" />
+            <Skeleton className="h-11 w-48 rounded-full" />
+          </div>
+        </section>
+
+        <section className="mt-12 border-t pt-6 space-y-4 md:mt-20 md:pt-10" aria-hidden="true">
+          <Skeleton className="h-4 w-40" />
+          <div className="grid gap-4 md:grid-cols-2">
+            <Skeleton className="h-20 w-full" />
+            <Skeleton className="h-20 w-full" />
+          </div>
+        </section>
+
+        <section className="mt-12 border-t pt-6 space-y-4 md:mt-20 md:pt-10" aria-hidden="true">
+          <Skeleton className="h-4 w-32" />
+          <div className="grid gap-6 md:grid-cols-2">
+            <Skeleton className="h-40 w-full" />
+            <Skeleton className="h-40 w-full" />
+            <Skeleton className="h-40 w-full" />
+          </div>
+        </section>
+
+        <section className="mt-12 border-t pt-6 space-y-4 md:mt-20 md:pt-10" aria-hidden="true">
+          <Skeleton className="h-4 w-28" />
+          <div className="grid gap-6 md:grid-cols-2">
+            <Skeleton className="h-32 w-full" />
+            <Skeleton className="h-32 w-full" />
+            <Skeleton className="h-32 w-full" />
+          </div>
+        </section>
+
+        <section className="mt-12 border-t pt-6 space-y-4 md:mt-20 md:pt-10" aria-hidden="true">
+          <Skeleton className="h-4 w-24" />
+          <div className="space-y-3">
+            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-10 w-full" />
+            <Skeleton className="h-10 w-full" />
+          </div>
+        </section>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>

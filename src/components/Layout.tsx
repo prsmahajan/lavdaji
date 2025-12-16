@@ -1,4 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
+import { NavLink as RouterNavLink } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -79,8 +80,8 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-20 border-b bg-background/90 backdrop-blur-sm">
         <nav className="container flex items-center justify-between gap-4 py-2 md:py-3">
-          <a
-            href="/"
+          <RouterNavLink
+            to="/"
             className="flex items-center gap-2 text-sm font-medium tracking-tight text-foreground/80 hover:text-foreground"
           >
             <img
@@ -89,14 +90,18 @@ export const Layout = ({ children }: LayoutProps) => {
               className="h-10 md:h-12 lg:h-14 w-auto rounded-[3px] border border-border/80 bg-background object-contain"
             />
             {/* <span className="hidden text-sm md:inline">Paras Mahajan</span> */}
-          </a>
+          </RouterNavLink>
 
           <div className="flex flex-1 items-center justify-end gap-4 md:gap-6">
             <div className="hidden items-center gap-5 text-xs md:flex md:text-sm">
               {navItems.map((item) => (
-                <a key={item.href} href={item.href} className="font-semibold text-foreground/90 hover:text-foreground">
+                <RouterNavLink
+                  key={item.href}
+                  to={item.href}
+                  className="font-semibold text-foreground/90 hover:text-foreground"
+                >
                   {item.label}
-                </a>
+                </RouterNavLink>
               ))}
             </div>
 
@@ -158,13 +163,13 @@ export const Layout = ({ children }: LayoutProps) => {
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">Navigate</p>
             <div className="flex flex-col gap-1 text-xs">
               {navItems.map((item) => (
-                <a
+                <RouterNavLink
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   className="text-muted-foreground hover:text-foreground/90 transition-colors"
                 >
                   {item.label}
-                </a>
+                </RouterNavLink>
               ))}
             </div>
           </nav>

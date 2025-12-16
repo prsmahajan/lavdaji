@@ -171,11 +171,11 @@ export const Layout = ({ children }: LayoutProps) => {
 
           <div className="space-y-2 text-xs">
             <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground/80">Contact</p>
-            <p className="text-muted-foreground">Based in India · Working with teams globally.</p>
+            <p className="text-muted-foreground text-[11px]">Based in India · Working with teams globally.</p>
             <p>
               <a
                 href="mailto:paras@prsmahajan.com"
-                className="text-foreground/90 hover:text-foreground underline-offset-2 hover:underline"
+                className="text-foreground/90 text-[11px] hover:text-foreground underline-offset-2 hover:underline"
               >
                 paras@prsmahajan.com
               </a>
@@ -183,7 +183,7 @@ export const Layout = ({ children }: LayoutProps) => {
             <p>
               <a
                 href="tel:+919041162603"
-                className="text-muted-foreground hover:text-foreground underline-offset-2 hover:underline"
+                className="text-muted-foreground text-[11px] hover:text-foreground underline-offset-2 hover:underline"
               >
                 +91 (904)11 62603
               </a>

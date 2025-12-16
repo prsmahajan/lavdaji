@@ -267,10 +267,10 @@ export const Layout = ({ children }: LayoutProps) => {
       </footer>
 
       <div
-        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/30 bg-background/40 shadow-sm backdrop-blur-md transition-[transform,opacity] duration-250 md:block"
+        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/25 bg-background/35 shadow-sm backdrop-blur-lg transition-[transform,opacity] duration-250 md:block"
         style={{
-          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorHoveringInteractive ? 1.4 : 1})`,
-          opacity: cursorVisible ? 0.8 : 0,
+          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorHoveringInteractive ? 1.45 : 1})`,
+          opacity: cursorVisible ? 0.75 : 0,
         }}
         aria-hidden="true"
       />

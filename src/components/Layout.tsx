@@ -78,7 +78,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-20 border-b bg-background/90 backdrop-blur-sm">
-        <nav className="container flex h-16 items-center justify-between gap-4">
+        <nav className="container flex items-center justify-between gap-4 py-2 md:py-3">
           <a
             href="/"
             className="flex items-center gap-2 text-sm font-medium tracking-tight text-foreground/80 hover:text-foreground"
@@ -86,7 +86,7 @@ export const Layout = ({ children }: LayoutProps) => {
             <img
               src={logo}
               alt="prs. logo"
-              className="h-7 w-auto rounded-[3px] border border-border/80 bg-background object-contain"
+              className="h-10 md:h-12 lg:h-14 w-auto rounded-[3px] border border-border/80 bg-background object-contain"
             />
             {/* <span className="hidden text-sm md:inline">Paras Mahajan</span> */}
           </a>

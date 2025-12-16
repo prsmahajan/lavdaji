@@ -330,11 +330,12 @@ export const Layout = ({ children }: LayoutProps) => {
                 width: mainRect.width,
                 transformOrigin: "top left",
                 transform: (() => {
-                  const zoom = 1.25;
+                  const zoom = 1.4;
+                  const circleSize = 96; // matches width/height above
                   const relativeX = cursorPosition.x - mainRect.left;
                   const relativeY = cursorPosition.y - mainRect.top;
-                  const offsetX = relativeX * (zoom - 1);
-                  const offsetY = relativeY * (zoom - 1);
+                  const offsetX = relativeX * (zoom - 1) - (circleSize / 2) * (zoom - 1);
+                  const offsetY = relativeY * (zoom - 1) - (circleSize / 2) * (zoom - 1);
                   return `translate(${-offsetX}px, ${-offsetY}px) scale(${zoom})`;
                 })(),
               }}

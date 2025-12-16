@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import { NavLink as RouterNavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { Button } from "@/components/ui/button";
@@ -25,6 +25,9 @@ export const Layout = ({ children }: LayoutProps) => {
   const [cursorVisible, setCursorVisible] = useState(false);
   const [cursorHoveringInteractive, setCursorHoveringInteractive] = useState(false);
   const [scrollPercent, setScrollPercent] = useState(0);
+  const mainRef = useRef<HTMLElement | null>(null);
+  const [mainRect, setMainRect] = useState<DOMRect | null>(null);
+  const [magnifierEnabled, setMagnifierEnabled] = useState(false);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -118,6 +121,48 @@ export const Layout = ({ children }: LayoutProps) => {
     };
   }, [cursorVisible]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const updateMagnifierEnabled = () => {
+      const isDesktop = window.innerWidth >= 768;
+      const allowMotion = !prefersReducedMotion.matches;
+      setMagnifierEnabled(isDesktop && allowMotion);
+    };
+
+    updateMagnifierEnabled();
+
+    window.addEventListener("resize", updateMagnifierEnabled);
+    prefersReducedMotion.addEventListener("change", updateMagnifierEnabled);
+
+    return () => {
+      window.removeEventListener("resize", updateMagnifierEnabled);
+      prefersReducedMotion.removeEventListener("change", updateMagnifierEnabled);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!mainRef.current) return;
+
+    const updateRect = () => {
+      if (!mainRef.current) return;
+      setMainRect(mainRef.current.getBoundingClientRect());
+    };
+
+    updateRect();
+
+    window.addEventListener("resize", updateRect);
+    window.addEventListener("scroll", updateRect, { passive: true });
+
+    return () => {
+      window.removeEventListener("resize", updateRect);
+      window.removeEventListener("scroll", updateRect);
+    };
+  }, [location.pathname]);
+
   const toggleTheme = () => {
     setTheme((prev) => {
       const next: Theme = prev === "dark" ? "light" : "dark";
@@ -203,6 +248,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
       <main
         key={location.pathname}
+        ref={mainRef}
         className="container pb-16 pt-10 md:pb-24 md:pt-16 max-w-3xl lg:max-w-4xl animate-fade-in"
       >
         {children}
@@ -267,13 +313,39 @@ export const Layout = ({ children }: LayoutProps) => {
       </footer>
 
       <div
-        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/20 bg-background/30 shadow-sm backdrop-blur-2xl transition-[transform,opacity] duration-250 md:block"
+        className="pointer-events-none fixed left-0 top-0 z-40 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/20 bg-background/30 shadow-sm backdrop-blur-2xl transition-[transform,opacity] duration-250 md:block"
         style={{
+          width: 96,
+          height: 96,
           transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorHoveringInteractive ? 1.6 : 1.15})`,
           opacity: cursorVisible ? (cursorHoveringInteractive ? 0.9 : 0.7) : 0,
         }}
         aria-hidden="true"
-      />
+      >
+        {magnifierEnabled && cursorVisible && mainRect && (
+          <div className="relative h-full w-full overflow-hidden rounded-full">
+            <div
+              className="pointer-events-none"
+              style={{
+                width: mainRect.width,
+                transformOrigin: "top left",
+                transform: (() => {
+                  const zoom = 1.25;
+                  const relativeX = cursorPosition.x - mainRect.left;
+                  const relativeY = cursorPosition.y - mainRect.top;
+                  const offsetX = relativeX * (zoom - 1);
+                  const offsetY = relativeY * (zoom - 1);
+                  return `translate(${-offsetX}px, ${-offsetY}px) scale(${zoom})`;
+                })(),
+              }}
+            >
+              <div className="pb-16 pt-10 md:pb-24 md:pt-16 max-w-3xl lg:max-w-4xl mx-auto">
+                {children}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

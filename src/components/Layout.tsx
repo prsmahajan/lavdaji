@@ -23,6 +23,7 @@ export const Layout = ({ children }: LayoutProps) => {
   const [theme, setTheme] = useState<Theme | null>(null);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
+  const [cursorHoveringInteractive, setCursorHoveringInteractive] = useState(false);
 
   useEffect(() => {
     if (typeof document === "undefined") return;
@@ -85,12 +86,32 @@ export const Layout = ({ children }: LayoutProps) => {
       setCursorVisible(false);
     };
 
+    const handleOver = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+      const interactive = target.closest("a, button, [role='button']");
+      setCursorHoveringInteractive(Boolean(interactive));
+    };
+
+    const handleOut = (event: MouseEvent) => {
+      const target = event.target as HTMLElement | null;
+      if (!target) return;
+      const interactive = target.closest("a, button, [role='button']");
+      if (!interactive) {
+        setCursorHoveringInteractive(false);
+      }
+    };
+
     window.addEventListener("mousemove", handleMove);
     window.addEventListener("mouseleave", handleLeave);
+    window.addEventListener("mouseover", handleOver);
+    window.addEventListener("mouseout", handleOut);
 
     return () => {
       window.removeEventListener("mousemove", handleMove);
       window.removeEventListener("mouseleave", handleLeave);
+      window.removeEventListener("mouseover", handleOver);
+      window.removeEventListener("mouseout", handleOut);
     };
   }, [cursorVisible]);
 
@@ -238,8 +259,11 @@ export const Layout = ({ children }: LayoutProps) => {
       </footer>
 
       <div
-        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/40 bg-background/70 shadow-sm backdrop-blur-sm transition-[transform,opacity] duration-200 md:block"
-        style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`, opacity: cursorVisible ? 1 : 0 }}
+        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/40 bg-background/70 shadow-sm backdrop-blur-sm transition-[transform,opacity,transform] duration-200 md:block"
+        style={{
+          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px) scale(${cursorHoveringInteractive ? 1.25 : 1})`,
+          opacity: cursorVisible ? 1 : 0,
+        }}
         aria-hidden="true"
       />
     </div>

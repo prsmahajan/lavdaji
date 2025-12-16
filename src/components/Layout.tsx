@@ -115,7 +115,6 @@ export const Layout = ({ children }: LayoutProps) => {
               alt="prs. logo"
               className="h-10 md:h-12 lg:h-14 w-auto rounded-[3px] border border-border/80 bg-background object-contain"
             />
-            {/* <span className="hidden text-sm md:inline">Paras Mahajan</span> */}
           </RouterNavLink>
 
           <div className="flex flex-1 items-center justify-end gap-4 md:gap-6">
@@ -237,6 +236,14 @@ export const Layout = ({ children }: LayoutProps) => {
           </div>
         </div>
       </footer>
+
+      <div
+        className="pointer-events-none fixed left-0 top-0 z-40 hidden h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/40 bg-background/70 shadow-sm backdrop-blur-sm transition-[transform,opacity] duration-200 md:block"
+        style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`, opacity: cursorVisible ? 1 : 0 }}
+        aria-hidden="true"
+      />
     </div>
   );
 };
+
+export default Layout;

@@ -1,12 +1,18 @@
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { trackEvent } from "@/lib/analytics";
+import { showInfoToast } from "@/hooks/use-toast";
 
 const Offers = () => {
   return (
     <Layout>
+      <Seo
+        title="Offers | Ways to Work Together"
+        description="Three clear ways to work with Paras Mahajan—from an Automation Audit to full revenue system builds and ongoing systems partnership."
+      />
       <section className="space-y-4">
         <h1 className="sr-only">Offers</h1>
         <SectionHeader

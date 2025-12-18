@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Seo } from "@/components/Seo";
 import { FaqItem } from "@/components/FaqItem";
 
 const faqItems = [
@@ -71,6 +72,10 @@ const FAQ = () => {
 
   return (
     <Layout>
+      <Seo
+        title="FAQ | Working Together on AI Systems"
+        description="Answers to common questions about timelines, scope, tools, and how engagements work when building AI automation and revenue systems."
+      />
       <section className="space-y-4">
         <h1 className="sr-only">Frequently asked questions</h1>
         <SectionHeader

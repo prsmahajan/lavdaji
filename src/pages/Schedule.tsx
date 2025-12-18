@@ -1,11 +1,17 @@
 import { Layout } from "@/components/Layout";
+import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { trackEvent } from "@/lib/analytics";
+import { showInfoToast } from "@/hooks/use-toast";
 
 const Schedule = () => {
   return (
     <Layout>
+      <Seo
+        title="Schedule | Book a Working Session"
+        description="Schedule a calm, working session with Paras Mahajan to map your current systems and see if there is a meaningful AI automation project to build together."
+      />
       <section className="space-y-6">
         <h1>Schedule a conversation</h1>
         <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
@@ -33,11 +39,15 @@ const Schedule = () => {
               data-cal-link="prsmahajan/60"
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
-              onClick={() =>
+              onClick={() => {
                 trackEvent("schedule_cta_click", {
                   location: "schedule_page_main",
-                })
-              }
+                });
+                showInfoToast({
+                  title: "Opening calendar",
+                  description: "Pick a time that works; you’ll get an instant calendar invite.",
+                });
+              }}
             >
               Open calendar
             </Button>

@@ -26,20 +26,22 @@ const Schedule = () => {
             </p>
           </div>
           <div className="pt-1 space-y-1.5">
-            <Button
-              type="button"
-              variant="cta"
-              size="lg"
-              data-cal-link="prsmahajan/60"
-              data-cal-namespace="60"
-              data-cal-config='{"layout":"month_view"}'
-              onClick={() =>
-                trackEvent("schedule_cta_click", {
-                  location: "schedule_page_main",
-                })
-              }
-            >
-              Open calendar
+            <Button asChild variant="cta" size="lg">
+              <a
+                href="https://cal.com/prsmahajan/60"
+                target="_blank"
+                rel="noreferrer"
+                data-cal-link="prsmahajan/60"
+                data-cal-namespace="60"
+                data-cal-config='{"layout":"month_view"}'
+                onClick={() =>
+                  trackEvent("schedule_cta_click", {
+                    location: "schedule_page_main",
+                  })
+                }
+              >
+                Open calendar
+              </a>
             </Button>
             <p className="text-xs text-muted-foreground">
               You&apos;ll see available slots in your local time and get a calendar invite immediately after booking.

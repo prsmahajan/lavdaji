@@ -182,20 +182,22 @@ export const Layout = ({ children }: LayoutProps) => {
               </TooltipProvider>
             )}
 
-            <Button
-              type="button"
-              variant="cta"
-              size="sm"
-              data-cal-link="prsmahajan/60"
-              data-cal-namespace="60"
-              data-cal-config='{"layout":"month_view"}'
-              onClick={() =>
-                trackEvent("schedule_cta_click", {
-                  location: "header",
-                })
-              }
-            >
-              Schedule a conversation
+            <Button asChild variant="cta" size="sm">
+              <a
+                href="https://cal.com/prsmahajan/60"
+                target="_blank"
+                rel="noreferrer"
+                data-cal-link="prsmahajan/60"
+                data-cal-namespace="60"
+                data-cal-config='{"layout":"month_view"}'
+                onClick={() =>
+                  trackEvent("schedule_cta_click", {
+                    location: "header",
+                  })
+                }
+              >
+                Schedule a conversation
+              </a>
             </Button>
           </div>
         </nav>

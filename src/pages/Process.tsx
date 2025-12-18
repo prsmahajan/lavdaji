@@ -1,10 +1,15 @@
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Seo } from "@/components/Seo";
 import { Card } from "@/components/ui/card";
 
 const Process = () => {
   return (
     <Layout>
+      <Seo
+        title="Process | How We Build AI Revenue Systems"
+        description="A simple, structured four-step process—diagnose, design, build, scale—for shipping reliable AI automation, sales, and marketing systems."
+      />
       <section className="space-y-4">
         <h1 className="sr-only">Process</h1>
         <SectionHeader

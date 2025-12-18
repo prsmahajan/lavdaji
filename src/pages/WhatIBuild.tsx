@@ -1,10 +1,15 @@
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Seo } from "@/components/Seo";
 import { Card } from "@/components/ui/card";
 
 const WhatIBuild = () => {
   return (
     <Layout>
+      <Seo
+        title="What I Build | Core AI System Types"
+        description="Three core system types—AI video automation, AI sales automation, and AI marketing systems—covering how you show up, sell, and grow."
+      />
       <section className="space-y-4">
         <h1 className="sr-only">What I build</h1>
         <SectionHeader

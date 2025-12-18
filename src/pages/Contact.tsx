@@ -1,10 +1,17 @@
 import { Layout } from "@/components/Layout";
+import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { showInfoToast } from "@/hooks/use-toast";
 import { Linkedin, Twitter } from "lucide-react";
+
 const Contact = () => {
   return (
     <Layout>
+      <Seo
+        title="Contact | Start with a Note or Call"
+        description="Prefer to start with a note instead of a call? Reach out to Paras Mahajan by email, phone, or social, or book a conversation directly from this page."
+      />
       <section className="space-y-6">
         <h1>Contact</h1>
         <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
@@ -63,6 +70,13 @@ const Contact = () => {
                 data-cal-link="prsmahajan/60"
                 data-cal-namespace="60"
                 data-cal-config='{"layout":"month_view"}'
+                onClick={() =>
+                  showInfoToast({
+                    title: "Opening calendar",
+                    description:
+                      "Choose a time for a conversation; you’ll get details by email immediately.",
+                  })
+                }
               >
                 Schedule a conversation
               </Button>

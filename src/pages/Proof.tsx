@@ -1,10 +1,15 @@
 import { Layout } from "@/components/Layout";
 import { SectionHeader } from "@/components/SectionHeader";
+import { Seo } from "@/components/Seo";
 import { Card } from "@/components/ui/card";
 
 const Proof = () => {
   return (
     <Layout>
+      <Seo
+        title="Proof | AI Systems in the Wild"
+        description="Representative AI video, sales, and marketing systems built for founders, creators, and teams, with names and specifics generalized."
+      />
       <section className="space-y-4">
         <h1 className="sr-only">Proof: systems in the wild</h1>
         <SectionHeader

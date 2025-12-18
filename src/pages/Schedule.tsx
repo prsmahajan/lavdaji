@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,44 @@ import { trackEvent } from "@/lib/analytics";
 import { showInfoToast } from "@/hooks/use-toast";
 
 const Schedule = () => {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const w = window as unknown as {
+      Cal?: any;
+    };
+
+    const initInline = () => {
+      if (!w.Cal || !w.Cal.ns || !w.Cal.ns["60"]) return;
+      try {
+        w.Cal.ns["60"]("inline", {
+          elementOrSelector: "#my-cal-inline-60",
+          config: { layout: "month_view" },
+          calLink: "prsmahajan/60",
+        });
+        w.Cal.ns["60"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      } catch (error) {
+        console.error("Error initializing Cal inline embed", error);
+      }
+    };
+
+    if (w.Cal && w.Cal.ns && w.Cal.ns["60"]) {
+      initInline();
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      if (w.Cal && w.Cal.ns && w.Cal.ns["60"]) {
+        window.clearInterval(interval);
+        initInline();
+      }
+    }, 250);
+
+    return () => {
+      window.clearInterval(interval);
+    };
+  }, []);
+
   return (
     <Layout>
       <Seo
@@ -19,7 +58,7 @@ const Schedule = () => {
         </p>
       </section>
 
-      <section className="mt-10">
+      <section className="mt-10 space-y-6">
         <Card className="space-y-4 p-6">
           <div className="space-y-2 text-sm text-muted-foreground">
             <p>
@@ -56,6 +95,8 @@ const Schedule = () => {
             </p>
           </div>
         </Card>
+
+        <div id="my-cal-inline-60" className="min-h-[520px] w-full overflow-x-hidden" />
       </section>
     </Layout>
   );

@@ -15,26 +15,38 @@ const Schedule = () => {
     };
 
     const initInline = () => {
-      if (!w.Cal || !w.Cal.ns || !w.Cal.ns["60"]) return;
+      console.log("[Schedule useEffect] initInline called");
+      console.log("[Schedule useEffect] w.Cal:", typeof w.Cal);
+      console.log("[Schedule useEffect] w.Cal.ns:", w.Cal?.ns ? Object.keys(w.Cal.ns) : "undefined");
+      console.log("[Schedule useEffect] w.Cal.ns[60]:", typeof w.Cal?.ns?.["60"]);
+      if (!w.Cal || !w.Cal.ns || !w.Cal.ns["60"]) {
+        console.log("[Schedule useEffect] Aborting - Cal not ready");
+        return;
+      }
       try {
+        console.log("[Schedule useEffect] Initializing inline calendar...");
         w.Cal.ns["60"]("inline", {
           elementOrSelector: "#my-cal-inline-60",
           config: { layout: "month_view" },
           calLink: "prsmahajan/60",
         });
         w.Cal.ns["60"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+        console.log("[Schedule useEffect] Inline calendar initialized successfully");
       } catch (error) {
         console.error("Error initializing Cal inline embed", error);
       }
     };
 
     if (w.Cal && w.Cal.ns && w.Cal.ns["60"]) {
+      console.log("[Schedule useEffect] Cal already ready, initializing immediately");
       initInline();
       return;
     }
 
+    console.log("[Schedule useEffect] Cal not ready yet, polling every 250ms...");
     const interval = window.setInterval(() => {
       if (w.Cal && w.Cal.ns && w.Cal.ns["60"]) {
+        console.log("[Schedule useEffect] Cal became ready, initializing now");
         window.clearInterval(interval);
         initInline();
       }
@@ -79,12 +91,15 @@ const Schedule = () => {
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
               onClick={() => {
+                console.log("[Schedule Button] Clicked");
+                console.log("[Schedule Button] window.Cal:", typeof window.Cal);
+                console.log("[Schedule Button] window.Cal.ns:", window.Cal?.ns ? Object.keys(window.Cal.ns) : "undefined");
                 trackEvent("schedule_cta_click", {
                   location: "schedule_page_main",
                 });
                 showInfoToast({
                   title: "Opening calendar",
-                  description: "Pick a time that works; you’ll get an instant calendar invite.",
+                  description: "Pick a time that works; you'll get an instant calendar invite.",
                 });
               }}
             >

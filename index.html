@@ -56,6 +56,7 @@
 
     <!-- Cal element-click embed code begins -->
     <script type="text/javascript">
+      console.log("[Cal.js] Starting initialization...");
       (function (C, A, L) {
         let p = function (a, ar) {
           a.q.push(ar);
@@ -71,6 +72,7 @@
               cal.q = cal.q || [];
               d.head.appendChild(d.createElement("script")).src = A;
               cal.loaded = true;
+              console.log("[Cal.js] Script loading from:", A);
             }
             if (ar[0] === L) {
               const api = function () {
@@ -82,6 +84,7 @@
                 cal.ns[namespace] = cal.ns[namespace] || api;
                 p(cal.ns[namespace], ar);
                 p(cal, ["initNamespace", namespace]);
+                console.log("[Cal.js] Namespace initialized:", namespace);
               } else p(cal, ar);
               return;
             }
@@ -89,7 +92,12 @@
           };
       })(window, "https://app.cal.com/embed/embed.js", "init");
       Cal("init", "60", { origin: "https://app.cal.com" });
+      console.log("[Cal.js] Cal object after init:", {
+        type: typeof window.Cal,
+        ns: window.Cal?.ns ? Object.keys(window.Cal.ns) : null,
+      });
       Cal.ns["60"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+      console.log("[Cal.js] UI initialized for namespace 60");
     </script>
     <!-- Cal element-click embed code ends -->
   </body>

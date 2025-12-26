@@ -190,14 +190,11 @@ export const Layout = ({ children }: LayoutProps) => {
               data-cal-link="prsmahajan/60"
               data-cal-namespace="60"
               data-cal-config='{"layout":"month_view"}'
-              onClick={() => {
-                console.log("[Header Button] Clicked");
-                console.log("[Header Button] window.Cal:", typeof window.Cal);
-                console.log("[Header Button] window.Cal.ns:", window.Cal?.ns ? Object.keys(window.Cal.ns) : "undefined");
+              onClick={() =>
                 trackEvent("schedule_cta_click", {
                   location: "header",
-                });
-              }}
+                })
+              }
             >
               Schedule a conversation
             </Button>

@@ -84,7 +84,7 @@ const Schedule = () => {
                 });
                 showInfoToast({
                   title: "Opening calendar",
-                  description: "Pick a time that works; you’ll get an instant calendar invite.",
+                  description: "Pick a time that works; you'll get an instant calendar invite.",
                 });
               }}
             >

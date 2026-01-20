@@ -265,6 +265,29 @@ export const Layout = ({ children }: LayoutProps) => {
             </p>
           </div>
         </div>
+
+        <div className="container max-w-3xl md:max-w-4xl mt-6 pt-6 border-t border-border/50">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[11px] text-muted-foreground/80">
+            <RouterNavLink
+              to="/privacy-policy"
+              className="hover:text-foreground underline-offset-2 hover:underline"
+            >
+              Privacy Policy
+            </RouterNavLink>
+            <RouterNavLink
+              to="/terms-of-service"
+              className="hover:text-foreground underline-offset-2 hover:underline"
+            >
+              Terms of Service
+            </RouterNavLink>
+            <RouterNavLink
+              to="/refund-policy"
+              className="hover:text-foreground underline-offset-2 hover:underline"
+            >
+              Refund & Cancellation Policy
+            </RouterNavLink>
+          </div>
+        </div>
       </footer>
 
       <div

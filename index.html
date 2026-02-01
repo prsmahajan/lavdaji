@@ -48,9 +48,44 @@
     <link rel="canonical" href="https://prsmahajan.com" />
 
     <link rel="icon" href="/favicon.png" type="image/png" />
+
+    <!-- Razorpay Checkout -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </head>
 
   <body>
+    <!-- Global SVG Filters -->
+    <svg style="position: absolute; width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Fine grain noise filter -->
+        <filter id="grain-fine">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        
+        <!-- Medium grain noise filter -->
+        <filter id="grain-medium">
+          <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        
+        <!-- Coarse grain noise filter -->
+        <filter id="grain-coarse">
+          <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        
+        <!-- Paper texture filter -->
+        <filter id="paper-texture">
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="5" seed="2" />
+          <feColorMatrix type="saturate" values="0" />
+          <feComponentTransfer>
+            <feFuncA type="discrete" tableValues="1 1" />
+          </feComponentTransfer>
+        </filter>
+      </defs>
+    </svg>
+
     <!-- Cal element-click embed code begins -->
     <script src="/cal-init.js"></script>
     <!-- Cal element-click embed code ends -->

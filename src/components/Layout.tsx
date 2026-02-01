@@ -138,7 +138,7 @@ export const Layout = ({ children }: LayoutProps) => {
         <nav className="container flex items-center justify-between gap-4 py-2 md:py-3">
           <RouterNavLink
             to="/"
-            className="flex items-center gap-2 text-sm font-medium tracking-tight text-foreground/80 hover:text-foreground"
+            className="flex items-center gap-2 text-sm font-medium tracking-tight text-foreground/80 hover:text-foreground no-grain"
           >
             <img
               src={logo}

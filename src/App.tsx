@@ -13,6 +13,8 @@ import Process from "./pages/Process";
 import FAQ from "./pages/FAQ";
 import Schedule from "./pages/Schedule";
 import Contact from "./pages/Contact";
+import Pay from "./pages/Pay";
+import GeneratePaymentLink from "./pages/GeneratePaymentLink";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import RefundPolicy from "./pages/RefundPolicy";
@@ -54,6 +56,8 @@ const App = () => (
           <Route path="/faq" element={<FAQ />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/pay" element={<Pay />} />
+          <Route path="/generate-link" element={<GeneratePaymentLink />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/refund-policy" element={<RefundPolicy />} />

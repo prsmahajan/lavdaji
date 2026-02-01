@@ -21,12 +21,51 @@ interface RazorpayOptions {
   currency: string;
   name: string;
   description: string;
+  image?: string;
   theme?: {
     color?: string;
   };
   handler: (response: RazorpayResponse) => void;
   modal?: {
     ondismiss?: () => void;
+    confirm_close?: boolean;
+  };
+  config?: {
+    display: {
+      blocks?: {
+        banks?: {
+          name: string;
+          instruments: Array<{
+            method: string;
+            banks?: string[];
+            issuers?: string[];
+            providers?: string[];
+            types?: string[];
+          }>;
+        };
+        other?: {
+          name: string;
+          instruments: Array<{
+            method: string;
+            providers?: string[];
+            wallets?: string[];
+          }>;
+        };
+      };
+      sequence?: string[];
+      preferences?: {
+        show_default_blocks?: boolean;
+      };
+    };
+  };
+  method?: {
+    card?: boolean;
+    netbanking?: boolean;
+    wallet?: boolean;
+    upi?: boolean;
+    paylater?: boolean;
+    gpay?: boolean;
+    paypal?: boolean;
   };
 }
 
@@ -89,6 +128,42 @@ const Pay = () => {
       theme: {
         color: "#1a1a1a",
       },
+      // Enable all payment methods including international options
+      method: {
+        card: true,        // Credit/Debit cards (includes Apple Pay on Safari)
+        netbanking: true,  // Net banking
+        wallet: true,      // Wallets
+        upi: true,         // UPI (includes Google Pay)
+        paylater: true,    // Pay Later options
+        gpay: true,        // Google Pay
+        paypal: true,      // PayPal (for international payments)
+      },
+      config: {
+        display: {
+          blocks: {
+            banks: {
+              name: "Pay with Cards & Banks",
+              instruments: [
+                { method: "card" },
+                { method: "netbanking" },
+              ],
+            },
+            other: {
+              name: "Other Payment Methods",
+              instruments: [
+                { method: "wallet", wallets: ["paytm", "phonepe", "amazonpay"] },
+                { method: "upi", providers: ["google_pay", "phonepe", "paytm"] },
+                { method: "paypal" },
+                { method: "paylater", providers: ["simpl", "lazypay"] },
+              ],
+            },
+          },
+          sequence: ["block.banks", "block.other"],
+          preferences: {
+            show_default_blocks: true,
+          },
+        },
+      },
       handler: (response: RazorpayResponse) => {
         setIsProcessing(false);
         setPaymentSuccess(true);
@@ -112,6 +187,7 @@ const Pay = () => {
             description: "You can try again whenever you're ready.",
           });
         },
+        confirm_close: true,
       },
     };
 
@@ -238,7 +314,47 @@ const Pay = () => {
           </Button>
         </div>
 
-        <p className="mt-8 flex items-center gap-2 text-xs text-muted-foreground">
+        {/* Payment Methods */}
+        <div className="mt-8 space-y-3">
+          <p className="text-xs text-muted-foreground">Accepted payment methods</p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {/* Cards */}
+            <div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2.5 py-1.5 text-xs font-medium">
+              <CreditCard className="h-3.5 w-3.5" />
+              <span>Cards</span>
+            </div>
+            {/* PayPal */}
+            <div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2.5 py-1.5 text-xs font-medium">
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19a.563.563 0 0 0-.556.479l-1.614 10.527Z"/>
+              </svg>
+              <span>PayPal</span>
+            </div>
+            {/* Apple Pay */}
+            <div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2.5 py-1.5 text-xs font-medium">
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08M12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25"/>
+              </svg>
+              <span>Apple Pay</span>
+            </div>
+            {/* Google Pay */}
+            <div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2.5 py-1.5 text-xs font-medium">
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.545 10.239v3.821h5.445c-.712 2.315-2.647 3.972-5.445 3.972a6.033 6.033 0 1 1 0-12.064 5.96 5.96 0 0 1 3.957 1.477l2.835-2.835A9.965 9.965 0 0 0 12.545 2 10 10 0 1 0 22.5 12.345h-9.955z"/>
+              </svg>
+              <span>Google Pay</span>
+            </div>
+            {/* UPI */}
+            <div className="flex items-center gap-1.5 rounded-md bg-muted/50 px-2.5 py-1.5 text-xs font-medium">
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.5 3v7.5H4v3h7.5V21h3v-7.5H22v-3h-7.5V3z"/>
+              </svg>
+              <span>UPI</span>
+            </div>
+          </div>
+        </div>
+
+        <p className="mt-6 flex items-center gap-2 text-xs text-muted-foreground">
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"

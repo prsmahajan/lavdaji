@@ -9,6 +9,8 @@ import { showSuccessToast } from "@/hooks/use-toast";
 import { generatePaymentLink } from "@/lib/payment";
 import { DollarSign, Copy, Link as LinkIcon } from "lucide-react";
 
+const RAZORPAY_CURRENCY = "USD";
+
 const GeneratePaymentLink = () => {
   const [amount, setAmount] = useState("");
   const [generatedLink, setGeneratedLink] = useState("");
@@ -25,12 +27,22 @@ const GeneratePaymentLink = () => {
   };
 
   const formatAmount = (value: string) => {
-    if (!value) return "$0.00";
+    if (!value) {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: RAZORPAY_CURRENCY,
+      }).format(0);
+    }
     const num = parseFloat(value);
-    if (isNaN(num)) return "$0.00";
+    if (isNaN(num)) {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: RAZORPAY_CURRENCY,
+      }).format(0);
+    }
     return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "USD",
+      currency: RAZORPAY_CURRENCY,
     }).format(num);
   };
 
@@ -70,7 +82,7 @@ const GeneratePaymentLink = () => {
             {/* Amount Input */}
             <div className="space-y-2">
               <Label htmlFor="amount" className="text-sm font-medium">
-                Amount (USD)
+                Amount ({RAZORPAY_CURRENCY})
               </Label>
               <div className="relative">
                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">

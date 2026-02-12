@@ -30,48 +30,12 @@ interface RazorpayOptions {
     ondismiss?: () => void;
     confirm_close?: boolean;
   };
-  config?: {
-    display: {
-      blocks?: {
-        banks?: {
-          name: string;
-          instruments: Array<{
-            method: string;
-            banks?: string[];
-            issuers?: string[];
-            providers?: string[];
-            types?: string[];
-          }>;
-        };
-        other?: {
-          name: string;
-          instruments: Array<{
-            method: string;
-            providers?: string[];
-            wallets?: string[];
-          }>;
-        };
-      };
-      sequence?: string[];
-      preferences?: {
-        show_default_blocks?: boolean;
-      };
-    };
-  };
-  method?: {
-    card?: boolean;
-    netbanking?: boolean;
-    wallet?: boolean;
-    upi?: boolean;
-    paylater?: boolean;
-    gpay?: boolean;
-    paypal?: boolean;
-  };
 }
 
 interface RazorpayInstance {
   open: () => void;
   close: () => void;
+  on: (event: string, callback: (response: RazorpayFailureResponse) => void) => void;
 }
 
 interface RazorpayResponse {
@@ -80,7 +44,18 @@ interface RazorpayResponse {
   razorpay_signature?: string;
 }
 
-const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID || "";
+interface RazorpayFailureResponse {
+  error?: {
+    description?: string;
+    reason?: string;
+    source?: string;
+    step?: string;
+    code?: string;
+  };
+}
+
+const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID || import.meta.env.VITE_RAZORPAY_KEY || "";
+const RAZORPAY_CURRENCY = "USD";
 
 const Pay = () => {
   const [searchParams] = useSearchParams();
@@ -95,7 +70,7 @@ const Pay = () => {
   const formatAmount = (value: number) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
-      currency: "USD",
+      currency: RAZORPAY_CURRENCY,
       minimumFractionDigits: 2,
     }).format(value);
   };
@@ -121,48 +96,12 @@ const Pay = () => {
 
     const options: RazorpayOptions = {
       key: RAZORPAY_KEY,
-      amount: Math.round(amount * 100), // Razorpay expects amount in smallest currency unit (cents for USD)
-      currency: "USD",
+      amount: Math.round(amount * 100), // Razorpay expects amount in the smallest currency unit
+      currency: RAZORPAY_CURRENCY,
       name: "Paras Mahajan",
       description: `Payment of ${formatAmount(amount)}`,
       theme: {
         color: "#1a1a1a",
-      },
-      // Enable all payment methods including international options
-      method: {
-        card: true,        // Credit/Debit cards (includes Apple Pay on Safari)
-        netbanking: true,  // Net banking
-        wallet: true,      // Wallets
-        upi: true,         // UPI (includes Google Pay)
-        paylater: true,    // Pay Later options
-        gpay: true,        // Google Pay
-        paypal: true,      // PayPal (for international payments)
-      },
-      config: {
-        display: {
-          blocks: {
-            banks: {
-              name: "Pay with Cards & Banks",
-              instruments: [
-                { method: "card" },
-                { method: "netbanking" },
-              ],
-            },
-            other: {
-              name: "Other Payment Methods",
-              instruments: [
-                { method: "wallet", wallets: ["paytm", "phonepe", "amazonpay"] },
-                { method: "upi", providers: ["google_pay", "phonepe", "paytm"] },
-                { method: "paypal" },
-                { method: "paylater", providers: ["simpl", "lazypay"] },
-              ],
-            },
-          },
-          sequence: ["block.banks", "block.other"],
-          preferences: {
-            show_default_blocks: true,
-          },
-        },
       },
       handler: (response: RazorpayResponse) => {
         setIsProcessing(false);
@@ -192,7 +131,18 @@ const Pay = () => {
     };
 
     try {
+      if (typeof window.Razorpay !== "function") {
+        throw new Error("Razorpay SDK did not load");
+      }
+
       const razorpay = new window.Razorpay(options);
+      razorpay.on("payment.failed", (response: RazorpayFailureResponse) => {
+        setIsProcessing(false);
+        showErrorToast({
+          title: "Payment failed",
+          description: response.error?.description || response.error?.reason || "Please try again.",
+        });
+      });
       razorpay.open();
 
       trackEvent("payment_initiated", {

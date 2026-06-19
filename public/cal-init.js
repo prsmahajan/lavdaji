@@ -32,5 +32,5 @@
       p(cal, ar);
     };
 })(window, "https://app.cal.com/embed/embed.js", "init");
-Cal("init", "60", { origin: "https://app.cal.com" });
-Cal.ns["60"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+Cal("init", "30", { origin: "https://app.cal.com" });
+Cal.ns["30"]("ui", { hideEventTypeDetails: false, layout: "month_view" });

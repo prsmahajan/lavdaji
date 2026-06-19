@@ -5,164 +5,109 @@ const RefundPolicy = () => {
   return (
     <Layout>
       <Seo
-        title="Refund & Cancellation Policy | Paras Mahajan"
-        description="Refund and cancellation policy for Paras Mahajan's freelance services. Learn about our refund process and cancellation terms."
+        title="Refund and Cancellation Policy | Paras Mahajan"
+        description="Clear terms on cancellations and refunds for marketing audit, growth sprint, and ongoing support services."
+        path="/refund"
       />
-      <div className="space-y-8">
+      <div className="space-y-8 max-w-3xl">
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Refund & Cancellation Policy</h1>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">Refund and Cancellation Policy</h1>
           <div className="space-y-1 text-sm text-muted-foreground">
-            <p>
-              <strong>Effective Date:</strong> January 20, 2026
-            </p>
-            <p>
-              <strong>Last Updated:</strong> January 20, 2026
-            </p>
+            <p><strong>Effective Date:</strong> June 19, 2026</p>
+            <p><strong>Last Updated:</strong> June 19, 2026</p>
           </div>
         </div>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">1. Overview</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">1. The Short Version</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            This Refund & Cancellation Policy outlines the terms and conditions for cancellations and refunds for services provided by Paras Mahajan. We strive to ensure client satisfaction while maintaining fair business practices.
+            You pay for work that gets done. If you cancel early, you pay for what's been completed and we refund the rest. Free calls can be cancelled or rescheduled without any issue.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">2. Consultation and Discovery Calls</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">2. Free Consultation Calls</h2>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li><strong className="text-foreground">Free Consultations:</strong> Initial consultation calls are typically offered at no charge. These can be cancelled or rescheduled up to 24 hours before the scheduled time without penalty.</li>
-            <li><strong className="text-foreground">No-Shows:</strong> If you miss a scheduled consultation without prior notice, we reserve the right to require a deposit for future bookings.</li>
+            <li>The initial 30-minute call is free. Cancel or reschedule up to 24 hours in advance without any issue.</li>
+            <li>If you miss a booked call without notice, we may ask for a deposit before scheduling again.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">3. Project Deposits</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">3. Marketing Audit</h2>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li><strong className="text-foreground">Non-Refundable Deposits:</strong> Initial project deposits (typically 25-50% of the project cost) are non-refundable once work has commenced.</li>
-            <li><strong className="text-foreground">Pre-Commencement Cancellation:</strong> If you cancel before any work has started, deposits may be refunded minus a 10% administrative fee.</li>
-            <li><strong className="text-foreground">Deposit Application:</strong> Deposits are applied toward the final project cost and secure your spot in our project queue.</li>
+            <li><strong className="text-foreground">Before the session:</strong> Full refund if you cancel at least 48 hours in advance.</li>
+            <li><strong className="text-foreground">Less than 48 hours notice:</strong> 50% refund.</li>
+            <li><strong className="text-foreground">After the session is delivered:</strong> No refund. The audit is a time-based service and the work is done at that point.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">4. Project Cancellation by Client</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">4. Growth Sprints and Project Work</h2>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li><strong className="text-foreground">Before Project Start:</strong> Full refund minus deposit (subject to pre-commencement terms above).</li>
-            <li><strong className="text-foreground">During Project (0-25% Complete):</strong> Refund of 75% of remaining project balance after deducting completed work and deposit.</li>
-            <li><strong className="text-foreground">During Project (26-50% Complete):</strong> Refund of 50% of remaining project balance after deducting completed work and deposit.</li>
-            <li><strong className="text-foreground">During Project (51-75% Complete):</strong> Refund of 25% of remaining project balance after deducting completed work and deposit.</li>
-            <li><strong className="text-foreground">During Project (76-100% Complete):</strong> No refund available. You are responsible for full payment of completed work.</li>
+            <li><strong className="text-foreground">Before work starts:</strong> Full refund minus a 10% admin fee to cover payment processing and scheduling costs.</li>
+            <li><strong className="text-foreground">0 to 25% complete:</strong> Refund of 75% of the remaining balance, after deducting the value of completed work.</li>
+            <li><strong className="text-foreground">26 to 50% complete:</strong> Refund of 50% of the remaining balance, after deducting completed work.</li>
+            <li><strong className="text-foreground">51 to 75% complete:</strong> Refund of 25% of the remaining balance, after deducting completed work.</li>
+            <li><strong className="text-foreground">Over 75% complete:</strong> No refund. Full payment is due for work completed.</li>
           </ul>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground mt-3">
-            Completion percentage is determined based on agreed-upon milestones and deliverables outlined in the project agreement.
+            Completion percentage is based on the milestones or deliverables agreed in the project confirmation.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">5. Project Cancellation by Us</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">5. Ongoing Monthly Support</h2>
+          <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
+            <li>Cancel with 30 days written notice at any time.</li>
+            <li>No refund for the current billing period once it has started.</li>
+            <li>Unused time in a month does not carry over unless specifically agreed.</li>
+          </ul>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl md:text-2xl font-semibold">6. If We Cancel</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            We reserve the right to cancel a project in the following circumstances:
-          </p>
-          <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li>Non-payment or repeated late payments</li>
-            <li>Failure to provide necessary information or resources</li>
-            <li>Scope creep beyond reasonable limits without additional compensation</li>
-            <li>Violation of our Terms of Service</li>
-            <li>Abusive or unprofessional conduct</li>
-          </ul>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground mt-3">
-            In such cases, you will receive a refund for any work not yet completed, minus the value of work already delivered.
+            We may end an engagement if payment is not made, you are unable to provide necessary access, or there is a breach of our Terms of Service. In that case, you will receive a refund for any work not yet delivered.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">6. Milestone-Based Projects</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">7. If You Are Not Happy With the Work</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            For projects with milestone-based payments:
-          </p>
-          <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li>Payments for completed and approved milestones are non-refundable</li>
-            <li>You may cancel at any milestone completion point</li>
-            <li>Refunds apply only to future, uncompleted milestones</li>
-            <li>Work in progress on the current milestone will be charged proportionally</li>
-          </ul>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">7. Subscription or Retainer Services</h2>
-          <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li><strong className="text-foreground">Monthly Retainers:</strong> Can be cancelled with 30 days written notice. No refund for the current billing period.</li>
-            <li><strong className="text-foreground">Unused Hours:</strong> Unused retainer hours typically do not roll over to the next month unless specified in the agreement.</li>
-            <li><strong className="text-foreground">Early Termination:</strong> If you terminate a retainer agreement early, the remaining contract term may be subject to an early termination fee as outlined in your agreement.</li>
-          </ul>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">8. Quality Guarantee</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            We stand behind the quality of our work. If you are not satisfied with a deliverable:
-          </p>
-          <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li>Notify us within 7 days of delivery</li>
-            <li>Provide specific, actionable feedback</li>
-            <li>We will make reasonable revisions at no additional cost (typically up to 2-3 rounds of revisions as specified in the project agreement)</li>
-          </ul>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground mt-3">
-            Refunds for quality issues will be considered on a case-by-case basis if revisions do not resolve the concerns.
+            If a deliverable does not meet the agreed brief, let us know within 7 days of delivery with specific feedback. We will revise it at no extra cost (typically up to 2 rounds, as specified in the project confirmation). If revisions do not resolve the concern, we will discuss a fair outcome.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">9. Refund Processing</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">8. What Is Not Refundable</h2>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li><strong className="text-foreground">Request Method:</strong> Refund requests must be submitted in writing to paras@prsmahajan.com.</li>
-            <li><strong className="text-foreground">Processing Time:</strong> Approved refunds will be processed within 7-14 business days.</li>
-            <li><strong className="text-foreground">Refund Method:</strong> Refunds will be issued to the original payment method when possible.</li>
-            <li><strong className="text-foreground">Transaction Fees:</strong> Payment processing fees (typically 2-3%) are non-refundable.</li>
-          </ul>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">10. Non-Refundable Items</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            The following are non-refundable:
-          </p>
-          <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li>Third-party services, licenses, or subscriptions purchased on your behalf</li>
-            <li>Domain registrations or hosting fees</li>
-            <li>Payment processing fees</li>
-            <li>Completed and delivered work</li>
+            <li>Third-party services or subscriptions purchased on your behalf</li>
+            <li>Payment processing fees charged by Razorpay</li>
+            <li>Work that has been delivered and approved</li>
             <li>Time spent on approved revisions</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">11. Force Majeure</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">9. How Refunds Are Processed</h2>
+          <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
+            <li><strong className="text-foreground">How to request:</strong> Email paras@prsmahajan.com with your name, the service, and the reason for the request.</li>
+            <li><strong className="text-foreground">Processing time:</strong> Approved refunds are processed within 7 to 14 business days.</li>
+            <li><strong className="text-foreground">Refund method:</strong> Refunds go back to the original payment method where possible.</li>
+          </ul>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl md:text-2xl font-semibold">10. Disputes</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            In the event of circumstances beyond our control (natural disasters, pandemics, government actions, etc.), we will work with you to reschedule or adjust the project timeline. Refunds may be available on a case-by-case basis.
+            If something is not right, contact us directly first. We will work to find a fair resolution. If we cannot agree, both parties will pursue mediation before taking any legal action.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">12. Dispute Resolution</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            If you have concerns about a refund or cancellation, please contact us directly to discuss. We are committed to finding fair solutions. If we cannot resolve the matter, both parties agree to pursue mediation before taking legal action.
-          </p>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">13. Changes to This Policy</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            We reserve the right to modify this Refund & Cancellation Policy at any time. Changes will be effective immediately upon posting. Your continued use of our services constitutes acceptance of the updated policy.
-          </p>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">14. Contact Us</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            For questions about cancellations or refunds, or to request a refund, please contact us:
-          </p>
+          <h2 className="text-xl md:text-2xl font-semibold">11. Contact</h2>
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">To request a refund or ask about this policy:</p>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
             <li><strong className="text-foreground">Email:</strong> paras@prsmahajan.com</li>
             <li><strong className="text-foreground">Phone:</strong> +91 (904)11 62603</li>

@@ -6,44 +6,44 @@ import { FaqItem } from "@/components/FaqItem";
 
 const faqItems = [
   {
-    question: "Do you work with agencies, creators, or founders?",
+    question: "Do you handle everything yourself?",
     answer:
-      "All three. I work best with leaders who are close to the work and want systems that support them, not replace them.",
+      "Strategy and oversight, yes. For bigger builds, specialist help gets brought in for specific parts. But you deal with one person who understands the full picture, not a different freelancer every week.",
   },
   {
-    question: "How long does a system take to build?",
+    question: "Why does it start with an audit?",
     answer:
-      "Most core systems are designed and launched in 2–4 weeks. Larger, multi-channel builds can take longer depending on scope.",
+      "Because ads, content, tracking, and follow-up all affect each other. Without looking at the full setup, you end up fixing the wrong thing first. The audit shows us what's actually worth fixing.",
   },
   {
-    question: "Do I need a big audience before we start?",
+    question: "Can you run Facebook or Instagram ads?",
     answer:
-      "No. What matters is a clear offer and a way people currently find you. Systems help you compound what is already working.",
+      "Yes, when it makes sense. If your landing page, offer message, or tracking is weak, we address those first. Running more ads to a broken funnel just wastes money faster.",
   },
   {
-    question: "Will this replace my team?",
+    question: "Can you fix my analytics so I know what's working?",
     answer:
-      "No. Automations remove repetitive work so your team can focus on judgment, conversation, and strategy.",
+      "Yes. Getting your tracking set up properly so you can trust what you're seeing, and know which ads and pages are actually bringing in customers, is one of the most common things we do.",
   },
   {
-    question: "What do you need from me to start?",
+    question: "Where does content and branding fit in?",
     answer:
-      "Access to your current tools, clarity on your main revenue goal, and 1–2 focused sessions where we walk through how you work today.",
+      "They make everything else work better. When your message is clear, more people understand your offer, trust it faster, and take action. We focus on this when it's the actual bottleneck.",
+  },
+  {
+    question: "What kind of automation do you build?",
+    answer:
+      "Practical things: automatic lead routing, follow-up sequences, regular reporting, and content workflows. We use tools you already have or ones that are easy to learn and manage yourself.",
   },
   {
     question: "Can we start small?",
     answer:
-      "Yes. Many clients start with an Automation Audit and then move into a system build once the roadmap is clear.",
+      "Yes. Most people start with the audit or one focused sprint around a single clear problem. Ongoing monthly support only makes sense once there's something working that's worth maintaining.",
   },
   {
-    question: "How do you handle tools and data?",
+    question: "What do you need before the first call?",
     answer:
-      "We work with the tools you already use where possible, and we keep ownership of data and access in your hands.",
-  },
-  {
-    question: "What happens after launch?",
-    answer:
-      "You can either run the system with your team using the documentation, or we can continue working together in a partnership model.",
+      "Nothing formal. Just a rough idea of your offer, how you currently get clients, and what you wish was going better. That's plenty to start a useful conversation.",
   },
 ];
 
@@ -73,15 +73,16 @@ const FAQ = () => {
   return (
     <Layout>
       <Seo
-        title="FAQ | Working Together on AI Systems"
-        description="Answers to common questions about timelines, scope, tools, and how engagements work when building AI automation and revenue systems."
+        title="Common Questions | How We Work Together"
+        description="Plain answers to what we do, why we start with an audit, and whether working together makes sense for your business."
+        path="/faq"
       />
       <section className="space-y-4">
         <h1 className="sr-only">Frequently asked questions</h1>
         <SectionHeader
           id="faq"
           label="FAQ"
-          description="If you are considering working together, these are the questions that usually matter most before we start."
+          description="Straight answers to the questions most people have before booking a call."
         />
       </section>
 

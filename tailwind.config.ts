@@ -66,7 +66,8 @@ export default {
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica Neue", "Arial", "sans-serif"],
-        serifHeading: ["Source Serif 4", "serif"],
+        heading: ["Capitalconvention", "Inter", "system-ui", "sans-serif"],
+        serifHeading: ["Capitalconvention", "Inter", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

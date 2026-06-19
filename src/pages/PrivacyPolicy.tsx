@@ -6,119 +6,111 @@ const PrivacyPolicy = () => {
     <Layout>
       <Seo
         title="Privacy Policy | Paras Mahajan"
-        description="Privacy policy for Paras Mahajan's freelance services. Learn how we collect, use, and protect your personal information."
+        description="How Paras Mahajan collects, uses, and protects your personal information when you use this website or book a service."
+        path="/privacy"
       />
-      <div className="space-y-8">
+      <div className="space-y-8 max-w-3xl">
         <div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4">Privacy Policy</h1>
           <div className="space-y-1 text-sm text-muted-foreground">
-            <p>
-              <strong>Effective Date:</strong> January 20, 2026
-            </p>
-            <p>
-              <strong>Last Updated:</strong> January 20, 2026
-            </p>
+            <p><strong>Effective Date:</strong> June 19, 2026</p>
+            <p><strong>Last Updated:</strong> June 19, 2026</p>
           </div>
         </div>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">1. Introduction</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">1. Who We Are</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            Welcome to Paras Mahajan's freelance services ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.
+            This site is operated by Paras Mahajan (prsmahajan.com). We provide marketing audit, ads, analytics, content, and automation services. This policy explains what information we collect, why we collect it, and how we use it.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">2. Information We Collect</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">We collect information that you provide directly to us, including:</p>
+          <h2 className="text-xl md:text-2xl font-semibold">2. What We Collect</h2>
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">We collect the following types of information:</p>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li><strong className="text-foreground">Personal Information:</strong> Name, email address, phone number, and other contact details when you schedule a consultation or contact us.</li>
-            <li><strong className="text-foreground">Payment Information:</strong> Billing details and payment information processed securely through our payment processor (Razorpay).</li>
-            <li><strong className="text-foreground">Communication Data:</strong> Records of correspondence if you contact us via email, phone, or through our website.</li>
-            <li><strong className="text-foreground">Technical Data:</strong> IP address, browser type, device information, and usage data collected through cookies and similar technologies.</li>
+            <li><strong className="text-foreground">Contact details:</strong> Name, email address, and phone number when you book a call or get in touch.</li>
+            <li><strong className="text-foreground">Payment information:</strong> Billing details processed securely through Razorpay. We do not store card numbers on our servers.</li>
+            <li><strong className="text-foreground">Messages:</strong> Any emails, notes, or messages you send us as part of an enquiry or project.</li>
+            <li><strong className="text-foreground">Website usage data:</strong> IP address, browser type, pages visited, and time on site, collected through cookies and analytics tools (Google Analytics).</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">3. How We Use Your Information</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">3. Why We Use It</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">We use the information we collect to:</p>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li>Provide, maintain, and improve our services</li>
-            <li>Process transactions and send transaction notifications</li>
-            <li>Respond to your inquiries and provide customer support</li>
-            <li>Send you updates, marketing communications, and promotional materials (with your consent)</li>
-            <li>Monitor and analyze usage patterns to improve user experience</li>
-            <li>Comply with legal obligations and protect our rights</li>
+            <li>Schedule and deliver services you've requested</li>
+            <li>Process payments and send receipts</li>
+            <li>Reply to enquiries and support requests</li>
+            <li>Send occasional updates or offers (you can opt out at any time)</li>
+            <li>Understand how the site is used so we can improve it</li>
+            <li>Meet legal obligations</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">4. Information Sharing and Disclosure</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">We do not sell your personal information. We may share your information with:</p>
+          <h2 className="text-xl md:text-2xl font-semibold">4. Who We Share It With</h2>
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">We do not sell your personal information. We may share it with:</p>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li><strong className="text-foreground">Service Providers:</strong> Third-party vendors who perform services on our behalf, such as payment processing (Razorpay), email delivery, and analytics.</li>
-            <li><strong className="text-foreground">Legal Requirements:</strong> When required by law, regulation, legal process, or governmental request.</li>
-            <li><strong className="text-foreground">Business Transfers:</strong> In connection with a merger, sale, or transfer of assets.</li>
+            <li><strong className="text-foreground">Service providers:</strong> Tools like Razorpay (payments), Cal.com (scheduling), and Google Analytics (website data). These providers have their own privacy policies.</li>
+            <li><strong className="text-foreground">Legal requirements:</strong> When we are legally required to disclose information.</li>
+            <li><strong className="text-foreground">Business transfers:</strong> If the business is sold or transferred, client data may be part of that transfer.</li>
           </ul>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">5. Data Security</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">5. Cookies</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure.
+            This site uses cookies for analytics and to remember your preferences. You can turn cookies off in your browser settings, though some parts of the site may not work as intended if you do.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">6. Cookies and Tracking Technologies</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">6. How We Protect Your Data</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            We use cookies and similar tracking technologies to track activity on our website and store certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
+            We take reasonable steps to protect your information from unauthorised access, loss, or misuse. That said, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">7. Your Rights</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">Depending on your location, you may have the following rights:</p>
+          <h2 className="text-xl md:text-2xl font-semibold">7. How Long We Keep It</h2>
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
+            We keep your information for as long as needed to provide the service and meet legal requirements. If you want us to delete your data, contact us and we will do so unless we are legally required to keep it.
+          </p>
+        </section>
+
+        <section className="space-y-3">
+          <h2 className="text-xl md:text-2xl font-semibold">8. Your Rights</h2>
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">You can ask us to:</p>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
-            <li>Access, update, or delete your personal information</li>
-            <li>Object to or restrict the processing of your data</li>
-            <li>Data portability</li>
-            <li>Withdraw consent at any time (where processing is based on consent)</li>
+            <li>Show you what personal information we hold about you</li>
+            <li>Correct anything that's inaccurate</li>
+            <li>Delete your data</li>
+            <li>Stop sending you marketing messages</li>
           </ul>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground mt-3">To exercise these rights, please contact us at paras@prsmahajan.com.</p>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">8. International Data Transfers</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            Your information may be transferred to and maintained on servers located outside of your country. We ensure appropriate safeguards are in place to protect your information in accordance with this Privacy Policy.
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground mt-3">
+            Email paras@prsmahajan.com to make any of these requests.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">9. Data Retention</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">9. Children</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
+            This site is not intended for anyone under 18. We do not knowingly collect information from children.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">10. Children's Privacy</h2>
+          <h2 className="text-xl md:text-2xl font-semibold">10. Changes to This Policy</h2>
           <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children under 18.
+            We may update this policy from time to time. The updated date at the top of this page will reflect any changes. Continued use of the site after an update means you accept the revised policy.
           </p>
         </section>
 
         <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">11. Changes to This Privacy Policy</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">
-            We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.
-          </p>
-        </section>
-
-        <section className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">12. Contact Us</h2>
-          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">If you have any questions about this Privacy Policy, please contact us:</p>
+          <h2 className="text-xl md:text-2xl font-semibold">11. Contact</h2>
+          <p className="text-sm md:text-base leading-relaxed text-muted-foreground">Questions about this policy? Get in touch:</p>
           <ul className="space-y-2 text-sm md:text-base text-muted-foreground ml-4 list-disc">
             <li><strong className="text-foreground">Email:</strong> paras@prsmahajan.com</li>
             <li><strong className="text-foreground">Phone:</strong> +91 (904)11 62603</li>

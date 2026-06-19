@@ -2,37 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Core design system: grayscale, calm, Notion-like */
+@font-face {
+  font-family: "Capitalconvention";
+  src:
+    local("Capitalconvention"),
+    url("/fonts/Capitalconvention.woff2") format("woff2"),
+    url("/fonts/Capitalconvention.woff") format("woff");
+  font-display: swap;
+}
+
+/* Core design system */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 210 10% 10%;
+    --background: 45 29% 97%;
+    --foreground: 220 18% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 10% 12%;
+    --card-foreground: 220 18% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 10% 10%;
+    --popover-foreground: 220 18% 10%;
 
-    --primary: 210 10% 10%;
+    --primary: 220 18% 9%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 15% 96%;
-    --secondary-foreground: 210 10% 12%;
+    --secondary: 172 38% 89%;
+    --secondary-foreground: 220 18% 10%;
 
-    --muted: 210 15% 96%;
-    --muted-foreground: 215 10% 40%;
+    --muted: 42 22% 91%;
+    --muted-foreground: 220 11% 36%;
 
-    --accent: 210 15% 96%;
-    --accent-foreground: 210 10% 15%;
+    --accent: 12 88% 62%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 16% 90%;
-    --input: 210 16% 90%;
-    --ring: 210 10% 15%;
+    --border: 35 18% 83%;
+    --input: 35 18% 83%;
+    --ring: 172 50% 34%;
 
     --radius: 0.75rem;
 
@@ -47,7 +56,7 @@
   }
 
   .dark {
-    --background: 0 0% 6.7%;
+    --background: 220 18% 7%;
     --foreground: 0 0% 98%;
 
     --card: 210 15% 10%;
@@ -59,14 +68,14 @@
     --primary: 0 0% 98%;
     --primary-foreground: 210 15% 8%;
 
-    --secondary: 210 10% 18%;
+    --secondary: 188 20% 18%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 10% 18%;
-    --muted-foreground: 0 0% 80%;
+    --muted: 220 13% 16%;
+    --muted-foreground: 42 14% 76%;
 
-    --accent: 210 10% 18%;
-    --accent-foreground: 0 0% 98%;
+    --accent: 12 82% 58%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 60% 40%;
     --destructive-foreground: 0 0% 98%;
@@ -134,15 +143,15 @@
   }
 
   h1 {
-    @apply font-serifHeading text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight leading-tight;
+    @apply font-heading text-4xl md:text-6xl lg:text-7xl font-semibold leading-[0.95];
   }
 
   h2 {
-    @apply font-serifHeading text-lg md:text-xl font-semibold tracking-tight leading-snug;
+    @apply font-heading text-2xl md:text-4xl font-semibold leading-tight;
   }
 
   h3 {
-    @apply text-base md:text-lg font-medium;
+    @apply font-heading text-lg md:text-2xl font-medium leading-tight;
   }
 
   p {
@@ -151,6 +160,121 @@
 }
 
 @layer utilities {
+  .agency-card {
+    color: hsl(var(--card-foreground));
+  }
+
+  .agency-card :where(h1, h2, h3, p, li, span, svg, a) {
+    transition: color 0.2s ease-out;
+  }
+
+  .agency-card:hover {
+    background: hsl(var(--foreground) / 0.92);
+    border-color: hsl(var(--foreground) / 0.92);
+    color: hsl(var(--background));
+  }
+
+  .agency-card:hover :where(h1, h2, h3, p, li, span, svg, a):not(button *):not(button) {
+    color: hsl(var(--background)) !important;
+  }
+
+  .agency-card:hover button:not([disabled]) {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+    border-color: hsl(var(--background) / 0.3) !important;
+  }
+
+  .agency-card:hover .bg-secondary,
+  .agency-card:hover .bg-accent\/10 {
+    background-color: hsl(var(--background) / 0.12) !important;
+    border-color: hsl(var(--background) / 0.22) !important;
+    color: hsl(var(--background)) !important;
+  }
+
+  .featured-offer-card {
+    background: hsl(var(--foreground));
+    border-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  .dark .featured-offer-card {
+    border-color: hsl(var(--muted));
+  }
+
+  .featured-offer-card :where(h1, h2, h3, p, li, span, svg, a):not(button *):not(button) {
+    color: hsl(var(--background)) !important;
+  }
+
+  .featured-offer-card:hover {
+    background: hsl(var(--background));
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+
+  .featured-offer-card:hover :where(h1, h2, h3, p, li, span, svg, a):not(button *):not(button) {
+    color: hsl(var(--foreground)) !important;
+  }
+
+  .agency-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.52) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.52) 1px, transparent 1px);
+    background-size: 52px 52px;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-float-slow {
+    animation: float-slow 7s ease-in-out infinite;
+  }
+
+  .animate-flow {
+    animation: flow 3.8s ease-in-out infinite;
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 2.8s ease-in-out infinite;
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
+  @keyframes flow {
+    0% {
+      transform: translateX(-18%);
+      opacity: 0;
+    }
+    20%,
+    78% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(110%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulse-soft {
+    0%,
+    100% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.04);
+    }
+  }
+
   /* Remove grain effect from specific elements */
   .no-grain {
     position: relative;

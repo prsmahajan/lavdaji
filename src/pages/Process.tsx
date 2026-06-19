@@ -7,41 +7,47 @@ const Process = () => {
   return (
     <Layout>
       <Seo
-        title="Process | How We Build AI Revenue Systems"
-        description="A simple, structured four-step process—diagnose, design, build, scale—for shipping reliable AI automation, sales, and marketing systems."
+        title="How It Works | Our 4-Step Approach"
+        description="We look before we touch. Find the real problem first, fix it properly, then build on what's working."
+        path="/process"
       />
       <section className="space-y-4">
         <h1 className="sr-only">Process</h1>
         <SectionHeader
           id="process"
-          label="Process"
-          description="A simple, structured way of working so you always know what we are doing and why."
+          label="How it works"
+          description="We don't guess and we don't start building until we know what the actual problem is."
+          labelUnderline
         />
       </section>
 
       <section className="mt-12 grid gap-4 border-t pt-6 md:mt-20 md:grid-cols-2 md:pt-10">
         <Card className="flex flex-col gap-2 p-5">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">01 · Diagnose</p>
+          <p className="mb-1 inline-block text-xs font-semibold uppercase tracking-[0.18em] text-foreground underline decoration-wavy decoration-2 decoration-accent underline-offset-[3px]">01 - Look first</p>
           <p className="text-sm text-foreground">
-            Clarify goals, constraints, and the real bottlenecks before touching tools.
+            We review your ads, website, analytics, content, and follow-up before we touch a single thing. Most of
+            the time, the real problem is not where you expect it to be.
           </p>
         </Card>
         <Card className="flex flex-col gap-2 p-5">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">02 · Design</p>
+          <p className="mb-1 inline-block text-xs font-semibold uppercase tracking-[0.18em] text-foreground underline decoration-wavy decoration-2 decoration-accent underline-offset-[3px]">02 - Pick one fix</p>
           <p className="text-sm text-foreground">
-            Map the system, key paths, and success metrics so we can ship in tight loops.
+            We find the one thing that's costing you the most and build a fix for just that. Not a list of 20
+            recommendations. One clear problem, solved properly.
           </p>
         </Card>
         <Card className="flex flex-col gap-2 p-5">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">03 · Build</p>
+          <p className="mb-1 inline-block text-xs font-semibold uppercase tracking-[0.18em] text-foreground underline decoration-wavy decoration-2 decoration-accent underline-offset-[3px]">03 - Build it</p>
           <p className="text-sm text-foreground">
-            Implement, connect tools, and test edge cases with a focus on reliability.
+            We build the fix with a clear handover, so you know exactly what was done, why it was done, and how to
+            run it yourself going forward.
           </p>
         </Card>
         <Card className="flex flex-col gap-2 p-5">
-          <p className="text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">04 · Scale</p>
+          <p className="mb-1 inline-block text-xs font-semibold uppercase tracking-[0.18em] text-foreground underline decoration-wavy decoration-2 decoration-accent underline-offset-[3px]">04 - Improve</p>
           <p className="text-sm text-foreground">
-            Monitor, refine, and extend the system as your volume and goals increase.
+            We check what the data shows after the fix is in place, tighten what's weak, and only move to the next
+            thing once what's already running is actually working.
           </p>
         </Card>
       </section>

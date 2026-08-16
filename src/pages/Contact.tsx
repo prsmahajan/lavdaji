@@ -3,7 +3,8 @@ import { Seo } from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { showInfoToast } from "@/hooks/use-toast";
-import { CalendarDays, Clock, Linkedin, MessageSquare, Twitter } from "lucide-react";
+import { LinkedInIcon, XIcon } from "@/components/BrandIcons";
+import { CalendarDays, Clock, MessageSquare } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -50,7 +51,7 @@ const Contact = () => {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
               >
-                <Linkedin className="h-4 w-4" aria-hidden="true" />
+                <LinkedInIcon className="h-4 w-4" aria-hidden="true" />
                 <span className="font-semibold">LinkedIn</span>
               </a>
               <a
@@ -59,7 +60,7 @@ const Contact = () => {
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground"
               >
-                <Twitter className="h-4 w-4" aria-hidden="true" />
+                <XIcon className="h-4 w-4" aria-hidden="true" />
                 <span className="font-semibold">Twitter / X</span>
               </a>
             </div>

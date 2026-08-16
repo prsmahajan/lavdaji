@@ -102,9 +102,20 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
-  const [theme, setTheme] = useState<Theme | null>(null);
+  // The inline script in index.html has already put the right class on <html>,
+  // so read the resolved theme back out rather than re-deriving it in an effect.
+  const [theme, setTheme] = useState<Theme | null>(() => {
+    if (typeof document === "undefined") return null;
+    return getStoredTheme() ?? (document.documentElement.classList.contains("dark") ? "dark" : "light");
+  });
   const [scrollPercent, setScrollPercent] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lastPathname, setLastPathname] = useState(location.pathname);
+
+  if (lastPathname !== location.pathname) {
+    setLastPathname(location.pathname);
+    setMenuOpen(false);
+  }
 
   const versionBase = location.pathname.startsWith("/v1")
     ? "/v1"
@@ -118,10 +129,6 @@ export const Layout = ({ children }: LayoutProps) => {
   };
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
     if (menuOpen) {
       document.body.style.overflow = "hidden";
     } else {
@@ -131,19 +138,6 @@ export const Layout = ({ children }: LayoutProps) => {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
-
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-
-    const stored = getStoredTheme();
-    const hasDarkClass = document.documentElement.classList.contains("dark");
-    let initial: Theme = hasDarkClass ? "dark" : "light";
-    if (stored) {
-      initial = stored;
-      applyTheme(initial);
-    }
-    setTheme(initial);
-  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -170,11 +164,9 @@ export const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => {
-      const next: Theme = prev === "dark" ? "light" : "dark";
-      applyTheme(next);
-      return next;
-    });
+    const next: Theme = theme === "dark" ? "light" : "dark";
+    applyTheme(next);
+    setTheme(next);
   };
 
   return (
